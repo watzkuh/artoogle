@@ -10,6 +10,6 @@ def index(request):
 def search(request):
     search_terms = str(request.GET.get('arg'))
 
-    #TODO: Query out backend
-    
+    # TODO: Query our backend
+
     return HttpResponse('You requested:   ' + search_terms)
