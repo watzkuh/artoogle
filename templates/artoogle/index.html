@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css"
+          integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9"
+          crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'artoogle/base.css' %}">
+    <meta charset="UTF-8">
+    <title>Artoogle!</title>
+</head>
+<body>
+<div class="wrap">
+    <div class="search">
+        <form action="/search.py">
+            <input type="text" class="searchTerm" placeholder="What are you looking for?" name="search">
+            <button type="submit" class="searchButton" >
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
