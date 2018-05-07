@@ -8,7 +8,12 @@ def index(request):
 
 
 def search(request):
-    search_terms = str(request.GET.get('arg'))
+    search_terms = str(request.GET.get('arg')).lower()
+
+    # Hilarious eastergg following
+    if search_terms == 'bob ross':
+        image_data = open("C:/Users/Naschinsui/PycharmProjects/aai/artoogle/static/artoogle/bob.jpg", "rb").read()
+        return HttpResponse(image_data, content_type="image/png")
 
     # TODO: Query our backend
 
