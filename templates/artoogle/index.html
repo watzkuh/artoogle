@@ -7,18 +7,18 @@
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'artoogle/base.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="{%  static 'artoogle/base.js' %}"></script>
+    <script src="{% static 'artoogle/base.js' %}"></script>
     <meta charset="UTF-8">
     <title>Artoogle!</title>
 </head>
-<body>
+<body
 <div class="wrap">
 
     <img class="center" src="{% static 'artoogle/logo_higherres.JPG' %}"/>
     <div class="search">
-        <form action="search" >
+        <form action="search">
             <input type="text" class="searchTerm" tabindex="0" placeholder="What are you looking for?" name="arg">
-            <button type="submit" class="searchButton" >
+            <button type="submigt" class="searchButton">
                 <i class="fa fa-search"></i>
             </button>
         </form>
