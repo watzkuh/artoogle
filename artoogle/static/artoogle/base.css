@@ -31,7 +31,8 @@ body {
     width: 100%;
     border: 3px solid #00B4CC;
     padding: 5px;
-    height: 20px;
+    padding-left: 16px;
+    height: 25px;
     border-radius: 5px;
     outline: none;
     color: #9DBFAF;
@@ -46,7 +47,7 @@ body {
     position: absolute;
     right: -50px;
     width: 40px;
-    height: 36px;
+    height: 40px;
     border: 1px solid #00B4CC;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background: #00B4CC;
