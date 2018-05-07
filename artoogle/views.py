@@ -8,4 +8,8 @@ def index(request):
 
 
 def search(request):
-    return HttpResponse(request)
+    search_terms = str(request.GET.get('arg'))
+
+    #TODO: Query out backend
+    
+    return HttpResponse('You requested:   ' + search_terms)
