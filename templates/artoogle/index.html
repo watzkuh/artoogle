@@ -11,14 +11,17 @@
     <meta charset="UTF-8">
     <title>Artoogle!</title>
 </head>
-<body
+<body>
 <div class="wrap">
-
     <img class="center" src="{% static 'artoogle/logo_higherres.JPG' %}"/>
     <div class="search">
-        <form action="search">
-            <input type="text" class="searchTerm" tabindex="0" placeholder="What are you looking for?" name="arg">
-            <button type="submigt" class="searchButton">
+        <form action="search" autocomplete="off">
+            <div class="autocomplete">
+                <input id="searchbox" type="text" class="searchTerm" tabindex="0"
+                       placeholder="What are you looking for?"
+                       name="arg">
+            </div>
+            <button type="submit" class="searchButton">
                 <i class="fa fa-search"></i>
             </button>
         </form>

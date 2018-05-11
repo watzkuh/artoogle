@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.template import loader
 
 
@@ -18,3 +18,7 @@ def search(request):
     # TODO: Query our backend
 
     return HttpResponse('You requested:   ' + search_terms)
+
+
+def autosuggest(request):
+    return JsonResponse({})
