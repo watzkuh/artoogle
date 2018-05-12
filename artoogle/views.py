@@ -21,4 +21,5 @@ def search(request):
 
 
 def autosuggest(request):
-    return JsonResponse({})
+    # TODO: Run the autosuggest search based on Swoosh
+    return JsonResponse({'suggestions':['Da Vinci', 'Michelangelo', 'Boticelli']})

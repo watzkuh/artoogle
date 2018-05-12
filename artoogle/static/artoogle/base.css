@@ -22,6 +22,7 @@ body {
     top: 100%;
     left: 0;
     right: 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .autocomplete-items div {
@@ -99,7 +100,7 @@ body {
 .wrap {
     width: 30%;
     position: absolute;
-    top: 25%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -30%);
 }
