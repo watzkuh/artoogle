@@ -14,3 +14,5 @@ class ArtQuery:
 
 graph = rdflib.Graph()
 graph.parse('data.owl', format="n3")
+
+graph.load()
