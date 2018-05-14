@@ -1,6 +1,6 @@
 from django.http import HttpResponse, JsonResponse
 from django.template import loader
-
+import aai.suggestion as sgst
 
 def index(request):
     template = loader.get_template('artoogle/index.html')
@@ -21,5 +21,6 @@ def search(request):
 
 
 def autosuggest(request):
-    # TODO: Run the autosuggest search based on Swoosh
-    return JsonResponse({'suggestions':['Da Vinci', 'Michelangelo', 'Boticelli']})
+    search_str = str(request.GET.get('arg')).lower() + '*'
+    suggestions = sgst.search(search_str)
+    return JsonResponse({'suggestions':suggestions})
