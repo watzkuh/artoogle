@@ -1,6 +1,6 @@
 import rdflib
 from rdflib.namespace import RDF, FOAF
-
+import rdflib.plugins.sparql as sparql
 
 class RDFQueries:
 
@@ -11,13 +11,24 @@ class RDFQueries:
         self.g.bind("foaf", FOAF)
 
     def artist_names(self):
-        q_result = self.g.query(
+        res = self.g.query(
             """SELECT * WHERE {
-            ?p rdf:type <http://dbpedia.org/ontology/Person> .
+                ?p rdf:type <http://dbpedia.org/ontology/Person> .
             }
             """
         )
         names = []
-        for row in q_result:
-            names.append(str(row).rsplit('/', 1)[-1].rsplit('\'', 1)[0].replace('_', ' ').lower())
+        for row in res:
+            names.append(str(row).rsplit('/', 1)[-1].rsplit('\'', 1)[0].replace('_', ' '))
         return names
+
+    def get_artist(self, name):
+        name = name.replace(' ', '_')
+        q_str = """SELECT * WHERE {
+                <http://dbpedia.org/resource/%s> <http://dbpedia.org/ontology/abstract> ?p .
+            }
+            """
+        q = sparql.prepareQuery(q_str % name)
+        res = str(self.g.query(q))
+        
+        return res
