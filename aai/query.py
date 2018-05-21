@@ -1,7 +1,7 @@
 import rdflib
 from rdflib.namespace import RDF, FOAF
 import rdflib.plugins.sparql as sparql
-
+import re
 class RDFQueries:
 
     def __init__(self):
@@ -29,6 +29,12 @@ class RDFQueries:
             }
             """
         q = sparql.prepareQuery(q_str % name)
-        res = str(self.g.query(q))
-        
-        return res
+        res = (self.g.query(q))
+        abstract = ""
+        for row in res:
+            abstract = str(row)
+        # turn meh Sparql result into readable string
+        abstract = re.search('\(rdflib\.term\.Literal\(\'(.*?)\', lang=\'en\'\),\)', abstract)
+        if abstract:
+            abstract = abstract.group(1).replace('\\xa0', ' ').replace('\\\'s', '\'s')
+        return abstract
