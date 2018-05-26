@@ -37,7 +37,7 @@ function autocomplete(inp, arr) {
         for (i = 0; i < arr.length; i++) {
             /*create a DIV element for each matching element:*/
             b = document.createElement("DIV");
-            b.innerHTML += arr[i];
+            b.innerHTML += decodeURI(arr[i]);
             /*insert a input field that will hold the current array item's value:*/
             b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
             /*execute a function when someone clicks on the item value (DIV element):*/

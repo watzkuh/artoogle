@@ -1,7 +1,8 @@
+import urllib
+
 import rdflib
 from rdflib.namespace import RDF, FOAF
 import rdflib.plugins.sparql as sparql
-import re
 
 
 class RDFQueries:
@@ -26,6 +27,7 @@ class RDFQueries:
         return names
 
     def get_abstract(self, artist):
+        urllib.parse.unquote(artist)
         artist = artist.replace(' ', '_')
         q_str = """SELECT * WHERE {
                         <http://dbpedia.org/resource/%s> <http://dbpedia.org/ontology/abstract> ?p .
@@ -40,14 +42,15 @@ class RDFQueries:
         return abstract
 
     def get_art(self, artist):
+        urllib.parse.unquote(artist)
         artist = artist.replace(' ', '_')
+        print(artist)
         q_str = """
-        PREFIX dbpedia:	<http://dbpedia.org/resource/>
         PREFIX dbp:	<http://dbpedia.org/property/>
         PREFIX local: <http://localhost/>
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
         SELECT ?path ?label WHERE {
-            ?a dbp:artist dbpedia:%s.
+            ?a dbp:artist 	<http://dbpedia.org/resource/%s>.
             ?a local:compressed_depiction ?path.
             ?a rdfs:label ?label.
         }
@@ -56,5 +59,6 @@ class RDFQueries:
         res = (self.g.query(q))
         images = {}
         for row in res:
+            print(str(row))
             images[row[1]] = row[0]
         return images
