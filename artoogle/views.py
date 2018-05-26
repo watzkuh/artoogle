@@ -1,9 +1,11 @@
 from django.http import HttpResponse, JsonResponse
+from django.shortcuts import render
 from django.template import loader
 import aai.suggestion as sgst
 import aai.query as query
 
 pool = query.RDFQueries()
+
 
 def index(request):
     template = loader.get_template('artoogle/index.html')
@@ -18,8 +20,13 @@ def search(request):
         image_data = open("C:/Users/Naschinsui/PycharmProjects/aai/artoogle/static/artoogle/bob.jpg", "rb").read()
         return HttpResponse(image_data, content_type="image/png")
 
-    res = pool.get_artist(search_terms)
-    return HttpResponse(res)
+    abstract = pool.get_abstract(search_terms)
+    images = pool.get_art(search_terms)
+
+    return render(request, 'artoogle/index.html', {
+        'abstract': abstract,
+        'images': images
+    })
 
 
 def autosuggest(request):

@@ -7,7 +7,7 @@ $(document).ready(function () {
     searchBox.keyup(function (e) {
         if (e.keyCode == 40 || e.keyCode == 38)
             return;
-        $.getJSON(window.location.href + "autosuggest", searchBox.valueOf(), function (data) {
+        $.getJSON("/autosuggest", searchBox.valueOf(), function (data) {
             console.log(data);
             autocomplete(document.getElementById("searchbox"), data['suggestions']);
         })
