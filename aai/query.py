@@ -44,7 +44,6 @@ class RDFQueries:
     def get_art(self, artist):
         urllib.parse.unquote(artist)
         artist = artist.replace(' ', '_')
-        print(artist)
         q_str = """
         PREFIX dbp:	<http://dbpedia.org/property/>
         PREFIX local: <http://localhost/>
