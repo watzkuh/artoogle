@@ -58,6 +58,5 @@ class RDFQueries:
         res = (self.g.query(q))
         images = {}
         for row in res:
-            print(str(row))
             images[row[1]] = row[0]
         return images
