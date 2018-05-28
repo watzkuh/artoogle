@@ -101,6 +101,6 @@ body {
 }
 
 .ui-menu .ui-menu-item:hover, .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus {
-    background-color: red;
+    background: #00B4CC;
     font-weight: bold;
 }
