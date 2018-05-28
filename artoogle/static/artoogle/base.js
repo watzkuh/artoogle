@@ -24,5 +24,5 @@ function onSearch(request, response) {
 
 function onSelect(event, ui) {
     searchBox.value = ui.item.value;
-     $(this).parents("form").submit();
+    $(this).parents("form").submit();
 }
