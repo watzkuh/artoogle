@@ -24,7 +24,7 @@
                 <input id="searchbox" type="text" class="searchTerm" tabindex="0"
                        placeholder="What are you looking for?"
                        name="arg"
-                        autofocus>
+                       autofocus>
             </div>
             <button id="searchButton" type="submit" class="searchButton">
                 <i class="fa fa-search"></i>
@@ -37,17 +37,17 @@
         <h2>Abstract: </h2>
         <p>{{ abstract }}</p>
     {% endif %}
-        {% if images %}
-            <h2>Artworks: </h2>
-            {% for title, path in images.items %}
-                <div class="artwork-item">
-                    <p>{{ title }}</p>
-                    <a href="{% static path %}">
-                        <img src="{% static path %}" />
-                    </a>
-                </div>
-            {% endfor %}
-        {% endif %}
+    {% if images %}
+        <h2>Artworks: </h2>
+        {% for title, path in images.items %}
+            <div class="artwork-item">
+                <p>{{ title }}</p>
+                <a href="{% static path %}">
+                    <img src="{% static path %}"/>
+                </a>
+            </div>
+        {% endfor %}
+    {% endif %}
 </div>
 </body>
 </html>

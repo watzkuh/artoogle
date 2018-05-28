@@ -8,7 +8,6 @@ body {
 .autocomplete {
     /*the container must be positioned relative:*/
     width: 100%;
-    position: relative;
     display: inline-block;
 }
 
@@ -97,10 +96,6 @@ body {
 }
 
 .ui-menu .ui-menu-item {
-    padding: 5px;
+    padding: 6px;
 }
 
-.ui-menu .ui-menu-item:hover, .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus {
-    background: #00B4CC;
-    font-weight: bold;
-}
