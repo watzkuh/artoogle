@@ -9,11 +9,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <script src="{% static 'artoogle/base.js' %}"></script>
     <meta charset="UTF-8">
     <title>Artoogle!</title>
 </head>
 <body>
+<select onchange="onLanguageSekection(this)" id="language_selector">
+    <option value="EN">English</option>
+    <option value="DE">Deutsch</option>
+</select>
 <div class="wrap">
     <a href="/">
         <img class="center" src="{% static 'artoogle/logo_higherres.JPG' %}"/>
