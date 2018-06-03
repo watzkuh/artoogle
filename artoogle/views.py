@@ -5,8 +5,10 @@ from django.shortcuts import render
 from django.template import loader
 import aai.suggestion as sgst
 import aai.query as query
+import deepl
 
 pool = query.RDFQueries()
+languages = ['DE', 'FR', 'ES', 'IT', 'NL', 'PL']
 
 
 def index(request):
@@ -24,6 +26,10 @@ def search(request):
 
     abstract = pool.get_abstract(search_terms)
     images = pool.get_art(search_terms)
+
+    lang = request.COOKIES.get('lang')
+    if lang in languages:
+        abstract, _ = deepl.translate(abstract, source='EN', target=lang)
 
     return render(request, 'artoogle/index.html', {
         'abstract': abstract,
