@@ -27,7 +27,6 @@ class RDFQueries:
         return names
 
     def get_abstract(self, artist):
-        urllib.parse.unquote(artist)
         artist = artist.replace(' ', '_')
         q_str = """SELECT * WHERE {
                         <http://dbpedia.org/resource/%s> <http://dbpedia.org/ontology/abstract> ?p .
@@ -42,7 +41,6 @@ class RDFQueries:
         return abstract
 
     def get_art(self, artist):
-        urllib.parse.unquote(artist)
         artist = artist.replace(' ', '_')
         q_str = """
         PREFIX dbp:	<http://dbpedia.org/property/>
@@ -58,5 +56,5 @@ class RDFQueries:
         res = (self.g.query(q))
         images = {}
         for row in res:
-            images[row[1]] = row[0]
+            images[row[0]] = row[1]
         return images

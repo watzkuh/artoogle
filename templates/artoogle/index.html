@@ -34,12 +34,10 @@
 </div>
 <div class="results-wrap">
     {% if abstract %}
-        <h2>Abstract: </h2>
         <p>{{ abstract }}</p>
     {% endif %}
     {% if images %}
-        <h2>Artworks: </h2>
-        {% for title, path in images.items %}
+        {% for path, title in images.items %}
             <div class="artwork-item">
                 <p>{{ title }}</p>
                 <a href="{% static path %}">
