@@ -37,7 +37,7 @@
         <p>{{ abstract }}</p>
     {% endif %}
     {% if images %}
-        {% for title, path in images.items %}
+        {% for path, title in images.items %}
             <div class="artwork-item">
                 <p>{{ title }}</p>
                 <a href="{% static path %}">

@@ -56,5 +56,5 @@ class RDFQueries:
         res = (self.g.query(q))
         images = {}
         for row in res:
-            images[row[1]] = row[0]
+            images[row[0]] = row[1]
         return images
