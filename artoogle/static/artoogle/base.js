@@ -9,8 +9,17 @@ $(document).ready(function () {
         source: onSearch,
         delay: 5,
         select: onSelect,
-    })
+    });
+    console.log($.cookie("lang"));
+    $("#language_selector").val($.cookie("lang"));
 });
+
+
+function onLanguageSekection(a) {
+    console.log(a.value);
+    $.cookie("lang", a.value);
+    window.location.reload();
+}
 
 function onSearch(request, response) {
     $.getJSON("/autosuggest", {"arg": encodeURI(request.term)}, function (data) {
