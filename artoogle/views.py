@@ -18,7 +18,8 @@ def index(request):
 
 def search(request):
     search_terms = str(request.GET.get('arg'))
-
+    search_terms = search_terms.replace(' ', '_')
+    search_terms = urllib.parse.quote(search_terms)
     # Hilarious eastergg following
     if search_terms == 'bob ross':
         image_data = open("C:/Users/Naschinsui/PycharmProjects/aai/artoogle/static/artoogle/bob.jpg", "rb").read()
@@ -40,7 +41,12 @@ def search(request):
     })
 
 
-def autosuggest(request):
-    search_str = str(request.GET.get('arg')) + '*'
+def auto_suggest(request):
+    search_str = str(request.GET.get('arg'))
     suggestions = sgst.search(search_str)
     return JsonResponse({'suggestions': suggestions})
+
+
+def run_index(request):
+    sgst.full_index()
+    return HttpResponse("done")
