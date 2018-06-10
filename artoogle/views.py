@@ -7,9 +7,15 @@ import aai.suggestion as sgst
 import aai.query as query
 import deepl
 
+from aai.log.ArtistRecommendation import ArtistRecommendation
+from aai.log.LogLoader import LogLoader
+
 pool = query.RDFQueries()
 languages = ['DE', 'FR', 'ES', 'IT', 'NL', 'PL']
 
+recommender = ArtistRecommendation(pool)
+logLoader = LogLoader()
+logLoader.register(0, recommender)
 
 def index(request):
     template = loader.get_template('artoogle/index.html')
@@ -27,6 +33,8 @@ def search(request):
 
     abstract = pool.get_abstract(search_terms)
     images = pool.get_art(search_terms)
+    log = logLoader.get_log(get_client_ip(request))
+    log.add_search(search_terms)
 
     lang = request.COOKIES.get('lang')
     if lang in languages:
@@ -35,9 +43,14 @@ def search(request):
             # images[path], _ = deepl.translate(title, source='EN', target=lang)
             images[path] = title
 
+    recommendations = recommender.get_recommendations(get_client_ip(request))
+    print("recommendations für ", get_client_ip(request))
+    print(recommendations)
+
     return render(request, 'artoogle/index.html', {
         'abstract': abstract,
-        'images': images
+        'images': images,
+        'recommendations' : recommendations
     })
 
 
@@ -45,6 +58,15 @@ def auto_suggest(request):
     search_str = str(request.GET.get('arg'))
     suggestions = sgst.search(search_str)
     return JsonResponse({'suggestions': suggestions})
+
+
+def get_client_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    return ip
 
 
 def run_index(request):

@@ -73,7 +73,11 @@ body {
     transform: translate(-50%, -0%);
 }
 
-
+.recommendations {
+    height:10%;
+    position:absolute;
+    bottom:0px;
+}
 
 #header {
     width: 30%;
