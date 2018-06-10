@@ -1,8 +1,6 @@
-import urllib
-
 import rdflib
-from rdflib.namespace import RDF, FOAF
 import rdflib.plugins.sparql as sparql
+from rdflib.namespace import RDF, FOAF
 
 
 class RDFQueries:
@@ -27,7 +25,6 @@ class RDFQueries:
         return names
 
     def get_abstract(self, artist):
-        artist = artist.replace(' ', '_')
         q_str = """SELECT * WHERE {
                         <http://dbpedia.org/resource/%s> <http://dbpedia.org/ontology/abstract> ?p .
                     }
@@ -41,7 +38,6 @@ class RDFQueries:
         return abstract
 
     def get_art(self, artist):
-        artist = artist.replace(' ', '_')
         q_str = """
         PREFIX dbp:	<http://dbpedia.org/property/>
         PREFIX local: <http://localhost/>

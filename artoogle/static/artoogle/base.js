@@ -22,7 +22,7 @@ function onLanguageSekection(a) {
 }
 
 function onSearch(request, response) {
-    $.getJSON("/autosuggest", {"arg": (request.term)}, function (data) {
+    $.getJSON("/autosuggest", {"arg": (encodeURIComponent(request.term))}, function (data) {
         let suggestions = [];
         data["suggestions"].forEach(function (entry) {
             suggestions.push(decodeURI(entry));
