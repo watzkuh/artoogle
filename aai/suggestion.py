@@ -1,14 +1,14 @@
 import os
 import os.path
 
-from whoosh import index
+from whoosh import index, analysis, searching
 from whoosh.fields import TEXT, Schema
 from whoosh.qparser import QueryParser
 from whoosh.reading import TermNotFound
 
 import aai.query as query
 
-SCHEMA = Schema(content=TEXT(phrase=True, stored=True))
+SCHEMA = Schema(content=TEXT(stored=True, spelling=True))
 INDEX_DIR = 'aai/indices'
 
 
@@ -33,22 +33,35 @@ def full_index():
     return idx
 
 
-def search(user_query):
+def search(query_string):
+    limit = 7
     # get index to search
     idx = get_indices()
 
     # parse the user_query
     qp = QueryParser('content', schema=idx.schema)
-    query = qp.parse(user_query)
+    query = qp.parse(query_string + '*')
 
     # get searcher
     with idx.searcher() as searcher:
-        # do search
+        # first step: try pure autocomplete
         try:
-            results = searcher.search(query, limit=7)
+            results = searcher.search(query, limit=limit)
         except TermNotFound:
             results = []
         json_A = []
         for hit in results:
             json_A.append(hit['content'])
+        # augment with spell checking suggestions
+        if len(json_A) == 0:
+            corrector = searcher.corrector('content')
+            results = corrector.suggest(query_string, limit=5)
+            for hit in results:
+                try:
+                    query = qp.parse(hit + '*')
+                    res = searcher.search(query, limit=limit-len(json_A))
+                except TermNotFound:
+                    res = []
+                for h in res:
+                    json_A.append(h['content'])
         return json_A

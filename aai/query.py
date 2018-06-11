@@ -1,8 +1,6 @@
-import urllib
-
 import rdflib
-from rdflib.namespace import RDF, FOAF
 import rdflib.plugins.sparql as sparql
+from rdflib.namespace import RDF, FOAF
 
 
 class RDFQueries:
@@ -27,7 +25,6 @@ class RDFQueries:
         return names
 
     def get_abstract(self, artist):
-        artist = artist.replace(' ', '_')
         q_str = """SELECT * WHERE {
                         <http://dbpedia.org/resource/%s> <http://dbpedia.org/ontology/abstract> ?p .
                     }
@@ -41,7 +38,6 @@ class RDFQueries:
         return abstract
 
     def get_art(self, artist):
-        artist = artist.replace(' ', '_')
         q_str = """
         PREFIX dbp:	<http://dbpedia.org/property/>
         PREFIX local: <http://localhost/>
@@ -58,3 +54,38 @@ class RDFQueries:
         for row in res:
             images[row[0]] = row[1]
         return images
+
+    def get_artists_for_movement(self, movement):
+        if not movement:
+            return
+
+        string = """
+            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                PREFIX db: <http://dbpedia.org/resource/>
+                PREFIX dbo: <http://dbpedia.org/ontology/>
+                SELECT ?l WHERE {{
+                    ?a dbo:movement/rdfs:label "High Renaissance"@en.
+                    ?a rdfs:label ?l
+                }}
+        """
+        #print(string % movement)
+        q = sparql.prepareQuery(string)
+        res = self.g.query(q)
+        artists = []
+        for row in res:
+            artists.append(str(row.l))
+        return artists
+
+    def get_movement(self, artist):
+
+        q_str = """
+                PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                PREFIX dbo: <http://dbpedia.org/ontology/>
+                SELECT * WHERE {
+                    <http://dbpedia.org/resource/%s> dbo:movement/rdfs:label ?m  
+                }
+                """
+        q = sparql.prepareQuery(q_str % artist)
+        res = (self.g.query(q))
+        for row in res:
+            return row.m

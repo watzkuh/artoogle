@@ -34,10 +34,10 @@
                        placeholder="What are you looking for?"
                        name="arg"
                        autofocus>
+                <button id="searchButton" type="submit" class="searchButton">
+                    <i class="fa fa-search"></i>
+                </button>
             </div>
-            <button id="searchButton" type="submit" class="searchButton">
-                <i class="fa fa-search"></i>
-            </button>
         </form>
     </div>
 </div>
@@ -55,6 +55,16 @@
             </div>
         {% endfor %}
     {% endif %}
+
+</div>
+{% if recommendations %}
+
+    <div class="recommendations">
+    <p><b>You might also like the following:</b></p>
+    {% for recommendation in recommendations %}
+        <p>{{ recommendation }}</p>
+    {% endfor %}
+{% endif %}
 </div>
 </body>
 </html>

@@ -35,7 +35,7 @@ body {
 .searchTerm {
     float: left;
     width: 100%;
-    border: 3px solid #00B4CC;
+    border: 3px solid #56A5E8;
     padding: 5px;
     padding-left: 16px;
     height: 25px;
@@ -45,7 +45,7 @@ body {
 }
 
 .searchTerm:focus {
-    color: #00B4CC;
+    color: #56A5E8;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -54,9 +54,9 @@ body {
     right: -50px;
     width: 40px;
     height: 40px;
-    border: 1px solid #00B4CC;
+    border: 1px solid #56A5E8;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    background: #00B4CC;
+    background: #56A5E8;
     text-align: center;
     color: #fff;
     border-radius: 5px;
@@ -73,7 +73,11 @@ body {
     transform: translate(-50%, -0%);
 }
 
-
+.recommendations {
+    height:10%;
+    position:absolute;
+    bottom:0px;
+}
 
 #header {
     width: 30%;
@@ -84,8 +88,8 @@ body {
     width: 80%;
     position: relative;
     left: 10%;
-    transform: translate(0, 24px);
     z-index: -1;
+    margin-top: 24px;
 }
 
 .artwork-item {
@@ -107,7 +111,7 @@ body {
     padding-left: 11px;
 }
 .ui-menu-item :focus{
-   background: #00B4CC;
+   background: #56A5E8;
 }
 .ui-menu-item:hover,
 .ui-state-active,
@@ -116,7 +120,7 @@ body {
 a.ui-button:active,
 .ui-button:active,
 .ui-button.ui-state-active:hover {
-    background: #00B4CC !important;
+    background: #56A5E8 !important;
     color: white!important;
     border: none!important;
 }
