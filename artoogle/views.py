@@ -26,6 +26,9 @@ def search(request):
     search_terms = str(request.GET.get('arg'))
     search_terms = search_terms.replace(' ', '_')
     search_terms = urllib.parse.quote(search_terms)
+    search_terms = search_terms.replace('%28', '(')
+    search_terms = search_terms.replace('%29', ')')
+    print(search_terms)
     # Hilarious eastergg following
     if search_terms == 'bob ross':
         image_data = open("C:/Users/Naschinsui/PycharmProjects/aai/artoogle/static/artoogle/bob.jpg", "rb").read()
