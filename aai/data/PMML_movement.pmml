@@ -1,0 +1,967 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PMML version="4.2" xmlns="http://www.dmg.org/PMML-4_2">
+  <Header copyright="tif">
+    <Application name="KNIME" version="3.5.2"/>
+  </Header>
+  <DataDictionary numberOfFields="4">
+    <DataField name="location" optype="categorical" dataType="string">
+      <Value value=" United_States "/>
+      <Value value=" France "/>
+      <Value value=" Australia "/>
+      <Value value=" Netherlands "/>
+      <Value value=" Spain "/>
+      <Value value=" England "/>
+      <Value value=" United_Kingdom "/>
+      <Value value=" South_Holland "/>
+      <Value value=" Rotterdam "/>
+      <Value value=" Barcelona "/>
+      <Value value=" Catalonia "/>
+      <Value value=" Barcelon%C3%A8s "/>
+      <Value value=" Province_of_Barcelona "/>
+      <Value value=" Philadelphia "/>
+      <Value value=" Pennsylvania "/>
+      <Value value=" Province_of_Pennsylvania "/>
+      <Value value=" Philadelphia_County,_Pennsylvania "/>
+      <Value value=" Bologna "/>
+      <Value value=" Italy "/>
+      <Value value=" Russia "/>
+    </DataField>
+    <DataField name="year" optype="continuous" dataType="integer">
+      <Interval closure="closedClosed" leftMargin="1280.0" rightMargin="1966.0"/>
+    </DataField>
+    <DataField name="movement" optype="categorical" dataType="string">
+      <Value value=" Modernism "/>
+      <Value value=" Abstract_expressionism "/>
+      <Value value=" Shaped_canvas "/>
+      <Value value=" Minimalism "/>
+      <Value value=" Abstract_Illusionism "/>
+      <Value value=" Lyrical_abstraction "/>
+      <Value value=" Color_Field "/>
+      <Value value=" Hard-edge_painting "/>
+      <Value value=" Geometric_abstraction "/>
+      <Value value=" Realism_(arts) "/>
+      <Value value=" Neoclassicism "/>
+      <Value value=" Antipodeans "/>
+      <Value value=" Impressionism "/>
+      <Value value=" Fauvism "/>
+      <Value value=" Post-Impressionism "/>
+      <Value value=" Romanticism "/>
+      <Value value=" Baroque "/>
+      <Value value=" Dutch_Golden_Age_painting "/>
+      <Value value=" Pre-Raphaelite_Brotherhood "/>
+      <Value value=" Aestheticism "/>
+      <Value value=" Arts_and_Crafts_movement "/>
+      <Value value=" Cubism "/>
+      <Value value=" Dada "/>
+      <Value value=" Surrealism "/>
+      <Value value=" Baroque_painting "/>
+      <Value value=" Luminism_(American_art_style) "/>
+      <Value value=" Regionalism_(art) "/>
+      <Value value=" Hudson_River_School "/>
+      <Value value=" Angry_Penguins "/>
+      <Value value=" Classicism "/>
+      <Value value=" Gothic_art "/>
+      <Value value=" Sienese_School "/>
+    </DataField>
+    <DataField name="Col3" optype="categorical" dataType="string"/>
+  </DataDictionary>
+  <TreeModel modelName="DecisionTree" functionName="classification" splitCharacteristic="multiSplit" missingValueStrategy="lastPrediction" noTrueChildStrategy="returnNullPrediction">
+    <MiningSchema>
+      <MiningField name="location" invalidValueTreatment="asIs"/>
+      <MiningField name="year" invalidValueTreatment="asIs"/>
+      <MiningField name="Col3" invalidValueTreatment="asIs"/>
+      <MiningField name="movement" invalidValueTreatment="asIs" usageType="target"/>
+    </MiningSchema>
+    <Node id="0" score=" Post-Impressionism " recordCount="217.0">
+      <True/>
+      <ScoreDistribution value=" Modernism " recordCount="9.0"/>
+      <ScoreDistribution value=" Abstract_expressionism " recordCount="4.0"/>
+      <ScoreDistribution value=" Shaped_canvas " recordCount="4.0"/>
+      <ScoreDistribution value=" Minimalism " recordCount="4.0"/>
+      <ScoreDistribution value=" Lyrical_abstraction " recordCount="4.0"/>
+      <ScoreDistribution value=" Color_Field " recordCount="3.0"/>
+      <ScoreDistribution value=" Abstract_Illusionism " recordCount="3.0"/>
+      <ScoreDistribution value=" Hard-edge_painting " recordCount="3.0"/>
+      <ScoreDistribution value=" Geometric_abstraction " recordCount="3.0"/>
+      <ScoreDistribution value=" Realism_(arts) " recordCount="15.0"/>
+      <ScoreDistribution value=" Neoclassicism " recordCount="2.0"/>
+      <ScoreDistribution value=" Antipodeans " recordCount="4.0"/>
+      <ScoreDistribution value=" Impressionism " recordCount="10.0"/>
+      <ScoreDistribution value=" Fauvism " recordCount="6.0"/>
+      <ScoreDistribution value=" Post-Impressionism " recordCount="47.0"/>
+      <ScoreDistribution value=" Romanticism " recordCount="8.0"/>
+      <ScoreDistribution value=" Baroque " recordCount="20.0"/>
+      <ScoreDistribution value=" Dutch_Golden_Age_painting " recordCount="9.0"/>
+      <ScoreDistribution value=" Pre-Raphaelite_Brotherhood " recordCount="3.0"/>
+      <ScoreDistribution value=" Aestheticism " recordCount="2.0"/>
+      <ScoreDistribution value=" Arts_and_Crafts_movement " recordCount="2.0"/>
+      <ScoreDistribution value=" Cubism " recordCount="11.0"/>
+      <ScoreDistribution value=" Dada " recordCount="13.0"/>
+      <ScoreDistribution value=" Surrealism " recordCount="18.0"/>
+      <ScoreDistribution value=" Baroque_painting " recordCount="2.0"/>
+      <ScoreDistribution value=" Luminism_(American_art_style) " recordCount="1.0"/>
+      <ScoreDistribution value=" Regionalism_(art) " recordCount="2.0"/>
+      <ScoreDistribution value=" Angry_Penguins " recordCount="1.0"/>
+      <ScoreDistribution value=" Classicism " recordCount="2.0"/>
+      <ScoreDistribution value=" Sienese_School " recordCount="2.0"/>
+      <Node id="1" score=" Realism_(arts) " recordCount="45.0">
+        <SimplePredicate field="location" operator="equal" value=" United_States "/>
+        <ScoreDistribution value=" Modernism " recordCount="3.0"/>
+        <ScoreDistribution value=" Abstract_expressionism " recordCount="4.0"/>
+        <ScoreDistribution value=" Shaped_canvas " recordCount="4.0"/>
+        <ScoreDistribution value=" Minimalism " recordCount="4.0"/>
+        <ScoreDistribution value=" Lyrical_abstraction " recordCount="4.0"/>
+        <ScoreDistribution value=" Color_Field " recordCount="3.0"/>
+        <ScoreDistribution value=" Abstract_Illusionism " recordCount="3.0"/>
+        <ScoreDistribution value=" Hard-edge_painting " recordCount="3.0"/>
+        <ScoreDistribution value=" Geometric_abstraction " recordCount="3.0"/>
+        <ScoreDistribution value=" Realism_(arts) " recordCount="5.0"/>
+        <ScoreDistribution value=" Neoclassicism " recordCount="0.0"/>
+        <ScoreDistribution value=" Antipodeans " recordCount="0.0"/>
+        <ScoreDistribution value=" Impressionism " recordCount="3.0"/>
+        <ScoreDistribution value=" Fauvism " recordCount="0.0"/>
+        <ScoreDistribution value=" Post-Impressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Romanticism " recordCount="0.0"/>
+        <ScoreDistribution value=" Baroque " recordCount="0.0"/>
+        <ScoreDistribution value=" Dutch_Golden_Age_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Pre-Raphaelite_Brotherhood " recordCount="0.0"/>
+        <ScoreDistribution value=" Aestheticism " recordCount="0.0"/>
+        <ScoreDistribution value=" Arts_and_Crafts_movement " recordCount="0.0"/>
+        <ScoreDistribution value=" Cubism " recordCount="0.0"/>
+        <ScoreDistribution value=" Dada " recordCount="0.0"/>
+        <ScoreDistribution value=" Surrealism " recordCount="3.0"/>
+        <ScoreDistribution value=" Baroque_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Luminism_(American_art_style) " recordCount="1.0"/>
+        <ScoreDistribution value=" Regionalism_(art) " recordCount="2.0"/>
+        <ScoreDistribution value=" Angry_Penguins " recordCount="0.0"/>
+        <ScoreDistribution value=" Classicism " recordCount="0.0"/>
+        <ScoreDistribution value=" Sienese_School " recordCount="0.0"/>
+        <Node id="2" score=" Realism_(arts) " recordCount="9.0">
+          <SimplePredicate field="year" operator="lessOrEqual" value="1915.5"/>
+          <ScoreDistribution value=" Modernism " recordCount="0.0"/>
+          <ScoreDistribution value=" Abstract_expressionism " recordCount="0.0"/>
+          <ScoreDistribution value=" Shaped_canvas " recordCount="0.0"/>
+          <ScoreDistribution value=" Minimalism " recordCount="0.0"/>
+          <ScoreDistribution value=" Lyrical_abstraction " recordCount="0.0"/>
+          <ScoreDistribution value=" Color_Field " recordCount="0.0"/>
+          <ScoreDistribution value=" Abstract_Illusionism " recordCount="0.0"/>
+          <ScoreDistribution value=" Hard-edge_painting " recordCount="0.0"/>
+          <ScoreDistribution value=" Geometric_abstraction " recordCount="0.0"/>
+          <ScoreDistribution value=" Realism_(arts) " recordCount="5.0"/>
+          <ScoreDistribution value=" Neoclassicism " recordCount="0.0"/>
+          <ScoreDistribution value=" Antipodeans " recordCount="0.0"/>
+          <ScoreDistribution value=" Impressionism " recordCount="3.0"/>
+          <ScoreDistribution value=" Fauvism " recordCount="0.0"/>
+          <ScoreDistribution value=" Post-Impressionism " recordCount="0.0"/>
+          <ScoreDistribution value=" Romanticism " recordCount="0.0"/>
+          <ScoreDistribution value=" Baroque " recordCount="0.0"/>
+          <ScoreDistribution value=" Dutch_Golden_Age_painting " recordCount="0.0"/>
+          <ScoreDistribution value=" Pre-Raphaelite_Brotherhood " recordCount="0.0"/>
+          <ScoreDistribution value=" Aestheticism " recordCount="0.0"/>
+          <ScoreDistribution value=" Arts_and_Crafts_movement " recordCount="0.0"/>
+          <ScoreDistribution value=" Cubism " recordCount="0.0"/>
+          <ScoreDistribution value=" Dada " recordCount="0.0"/>
+          <ScoreDistribution value=" Surrealism " recordCount="0.0"/>
+          <ScoreDistribution value=" Baroque_painting " recordCount="0.0"/>
+          <ScoreDistribution value=" Luminism_(American_art_style) " recordCount="1.0"/>
+          <ScoreDistribution value=" Regionalism_(art) " recordCount="0.0"/>
+          <ScoreDistribution value=" Angry_Penguins " recordCount="0.0"/>
+          <ScoreDistribution value=" Classicism " recordCount="0.0"/>
+          <ScoreDistribution value=" Sienese_School " recordCount="0.0"/>
+        </Node>
+        <Node id="5" score=" Abstract_expressionism " recordCount="36.0">
+          <SimplePredicate field="year" operator="greaterThan" value="1915.5"/>
+          <ScoreDistribution value=" Modernism " recordCount="3.0"/>
+          <ScoreDistribution value=" Abstract_expressionism " recordCount="4.0"/>
+          <ScoreDistribution value=" Shaped_canvas " recordCount="4.0"/>
+          <ScoreDistribution value=" Minimalism " recordCount="4.0"/>
+          <ScoreDistribution value=" Lyrical_abstraction " recordCount="4.0"/>
+          <ScoreDistribution value=" Color_Field " recordCount="3.0"/>
+          <ScoreDistribution value=" Abstract_Illusionism " recordCount="3.0"/>
+          <ScoreDistribution value=" Hard-edge_painting " recordCount="3.0"/>
+          <ScoreDistribution value=" Geometric_abstraction " recordCount="3.0"/>
+          <ScoreDistribution value=" Realism_(arts) " recordCount="0.0"/>
+          <ScoreDistribution value=" Neoclassicism " recordCount="0.0"/>
+          <ScoreDistribution value=" Antipodeans " recordCount="0.0"/>
+          <ScoreDistribution value=" Impressionism " recordCount="0.0"/>
+          <ScoreDistribution value=" Fauvism " recordCount="0.0"/>
+          <ScoreDistribution value=" Post-Impressionism " recordCount="0.0"/>
+          <ScoreDistribution value=" Romanticism " recordCount="0.0"/>
+          <ScoreDistribution value=" Baroque " recordCount="0.0"/>
+          <ScoreDistribution value=" Dutch_Golden_Age_painting " recordCount="0.0"/>
+          <ScoreDistribution value=" Pre-Raphaelite_Brotherhood " recordCount="0.0"/>
+          <ScoreDistribution value=" Aestheticism " recordCount="0.0"/>
+          <ScoreDistribution value=" Arts_and_Crafts_movement " recordCount="0.0"/>
+          <ScoreDistribution value=" Cubism " recordCount="0.0"/>
+          <ScoreDistribution value=" Dada " recordCount="0.0"/>
+          <ScoreDistribution value=" Surrealism " recordCount="3.0"/>
+          <ScoreDistribution value=" Baroque_painting " recordCount="0.0"/>
+          <ScoreDistribution value=" Luminism_(American_art_style) " recordCount="0.0"/>
+          <ScoreDistribution value=" Regionalism_(art) " recordCount="2.0"/>
+          <ScoreDistribution value=" Angry_Penguins " recordCount="0.0"/>
+          <ScoreDistribution value=" Classicism " recordCount="0.0"/>
+          <ScoreDistribution value=" Sienese_School " recordCount="0.0"/>
+        </Node>
+      </Node>
+      <Node id="10" score=" Impressionism " recordCount="31.0">
+        <SimplePredicate field="location" operator="equal" value=" France "/>
+        <ScoreDistribution value=" Modernism " recordCount="6.0"/>
+        <ScoreDistribution value=" Abstract_expressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Shaped_canvas " recordCount="0.0"/>
+        <ScoreDistribution value=" Minimalism " recordCount="0.0"/>
+        <ScoreDistribution value=" Lyrical_abstraction " recordCount="0.0"/>
+        <ScoreDistribution value=" Color_Field " recordCount="0.0"/>
+        <ScoreDistribution value=" Abstract_Illusionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Hard-edge_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Geometric_abstraction " recordCount="0.0"/>
+        <ScoreDistribution value=" Realism_(arts) " recordCount="4.0"/>
+        <ScoreDistribution value=" Neoclassicism " recordCount="2.0"/>
+        <ScoreDistribution value=" Antipodeans " recordCount="0.0"/>
+        <ScoreDistribution value=" Impressionism " recordCount="7.0"/>
+        <ScoreDistribution value=" Fauvism " recordCount="6.0"/>
+        <ScoreDistribution value=" Post-Impressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Romanticism " recordCount="2.0"/>
+        <ScoreDistribution value=" Baroque " recordCount="2.0"/>
+        <ScoreDistribution value=" Dutch_Golden_Age_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Pre-Raphaelite_Brotherhood " recordCount="0.0"/>
+        <ScoreDistribution value=" Aestheticism " recordCount="0.0"/>
+        <ScoreDistribution value=" Arts_and_Crafts_movement " recordCount="0.0"/>
+        <ScoreDistribution value=" Cubism " recordCount="0.0"/>
+        <ScoreDistribution value=" Dada " recordCount="0.0"/>
+        <ScoreDistribution value=" Surrealism " recordCount="0.0"/>
+        <ScoreDistribution value=" Baroque_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Luminism_(American_art_style) " recordCount="0.0"/>
+        <ScoreDistribution value=" Regionalism_(art) " recordCount="0.0"/>
+        <ScoreDistribution value=" Angry_Penguins " recordCount="0.0"/>
+        <ScoreDistribution value=" Classicism " recordCount="2.0"/>
+        <ScoreDistribution value=" Sienese_School " recordCount="0.0"/>
+        <Node id="11" score=" Realism_(arts) " recordCount="12.0">
+          <SimplePredicate field="year" operator="lessOrEqual" value="1868.5"/>
+          <ScoreDistribution value=" Modernism " recordCount="0.0"/>
+          <ScoreDistribution value=" Abstract_expressionism " recordCount="0.0"/>
+          <ScoreDistribution value=" Shaped_canvas " recordCount="0.0"/>
+          <ScoreDistribution value=" Minimalism " recordCount="0.0"/>
+          <ScoreDistribution value=" Lyrical_abstraction " recordCount="0.0"/>
+          <ScoreDistribution value=" Color_Field " recordCount="0.0"/>
+          <ScoreDistribution value=" Abstract_Illusionism " recordCount="0.0"/>
+          <ScoreDistribution value=" Hard-edge_painting " recordCount="0.0"/>
+          <ScoreDistribution value=" Geometric_abstraction " recordCount="0.0"/>
+          <ScoreDistribution value=" Realism_(arts) " recordCount="4.0"/>
+          <ScoreDistribution value=" Neoclassicism " recordCount="2.0"/>
+          <ScoreDistribution value=" Antipodeans " recordCount="0.0"/>
+          <ScoreDistribution value=" Impressionism " recordCount="0.0"/>
+          <ScoreDistribution value=" Fauvism " recordCount="0.0"/>
+          <ScoreDistribution value=" Post-Impressionism " recordCount="0.0"/>
+          <ScoreDistribution value=" Romanticism " recordCount="2.0"/>
+          <ScoreDistribution value=" Baroque " recordCount="2.0"/>
+          <ScoreDistribution value=" Dutch_Golden_Age_painting " recordCount="0.0"/>
+          <ScoreDistribution value=" Pre-Raphaelite_Brotherhood " recordCount="0.0"/>
+          <ScoreDistribution value=" Aestheticism " recordCount="0.0"/>
+          <ScoreDistribution value=" Arts_and_Crafts_movement " recordCount="0.0"/>
+          <ScoreDistribution value=" Cubism " recordCount="0.0"/>
+          <ScoreDistribution value=" Dada " recordCount="0.0"/>
+          <ScoreDistribution value=" Surrealism " recordCount="0.0"/>
+          <ScoreDistribution value=" Baroque_painting " recordCount="0.0"/>
+          <ScoreDistribution value=" Luminism_(American_art_style) " recordCount="0.0"/>
+          <ScoreDistribution value=" Regionalism_(art) " recordCount="0.0"/>
+          <ScoreDistribution value=" Angry_Penguins " recordCount="0.0"/>
+          <ScoreDistribution value=" Classicism " recordCount="2.0"/>
+          <ScoreDistribution value=" Sienese_School " recordCount="0.0"/>
+        </Node>
+        <Node id="16" score=" Impressionism " recordCount="19.0">
+          <SimplePredicate field="year" operator="greaterThan" value="1868.5"/>
+          <ScoreDistribution value=" Modernism " recordCount="6.0"/>
+          <ScoreDistribution value=" Abstract_expressionism " recordCount="0.0"/>
+          <ScoreDistribution value=" Shaped_canvas " recordCount="0.0"/>
+          <ScoreDistribution value=" Minimalism " recordCount="0.0"/>
+          <ScoreDistribution value=" Lyrical_abstraction " recordCount="0.0"/>
+          <ScoreDistribution value=" Color_Field " recordCount="0.0"/>
+          <ScoreDistribution value=" Abstract_Illusionism " recordCount="0.0"/>
+          <ScoreDistribution value=" Hard-edge_painting " recordCount="0.0"/>
+          <ScoreDistribution value=" Geometric_abstraction " recordCount="0.0"/>
+          <ScoreDistribution value=" Realism_(arts) " recordCount="0.0"/>
+          <ScoreDistribution value=" Neoclassicism " recordCount="0.0"/>
+          <ScoreDistribution value=" Antipodeans " recordCount="0.0"/>
+          <ScoreDistribution value=" Impressionism " recordCount="7.0"/>
+          <ScoreDistribution value=" Fauvism " recordCount="6.0"/>
+          <ScoreDistribution value=" Post-Impressionism " recordCount="0.0"/>
+          <ScoreDistribution value=" Romanticism " recordCount="0.0"/>
+          <ScoreDistribution value=" Baroque " recordCount="0.0"/>
+          <ScoreDistribution value=" Dutch_Golden_Age_painting " recordCount="0.0"/>
+          <ScoreDistribution value=" Pre-Raphaelite_Brotherhood " recordCount="0.0"/>
+          <ScoreDistribution value=" Aestheticism " recordCount="0.0"/>
+          <ScoreDistribution value=" Arts_and_Crafts_movement " recordCount="0.0"/>
+          <ScoreDistribution value=" Cubism " recordCount="0.0"/>
+          <ScoreDistribution value=" Dada " recordCount="0.0"/>
+          <ScoreDistribution value=" Surrealism " recordCount="0.0"/>
+          <ScoreDistribution value=" Baroque_painting " recordCount="0.0"/>
+          <ScoreDistribution value=" Luminism_(American_art_style) " recordCount="0.0"/>
+          <ScoreDistribution value=" Regionalism_(art) " recordCount="0.0"/>
+          <ScoreDistribution value=" Angry_Penguins " recordCount="0.0"/>
+          <ScoreDistribution value=" Classicism " recordCount="0.0"/>
+          <ScoreDistribution value=" Sienese_School " recordCount="0.0"/>
+        </Node>
+      </Node>
+      <Node id="17" score=" Antipodeans " recordCount="5.0">
+        <SimplePredicate field="location" operator="equal" value=" Australia "/>
+        <ScoreDistribution value=" Modernism " recordCount="0.0"/>
+        <ScoreDistribution value=" Abstract_expressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Shaped_canvas " recordCount="0.0"/>
+        <ScoreDistribution value=" Minimalism " recordCount="0.0"/>
+        <ScoreDistribution value=" Lyrical_abstraction " recordCount="0.0"/>
+        <ScoreDistribution value=" Color_Field " recordCount="0.0"/>
+        <ScoreDistribution value=" Abstract_Illusionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Hard-edge_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Geometric_abstraction " recordCount="0.0"/>
+        <ScoreDistribution value=" Realism_(arts) " recordCount="0.0"/>
+        <ScoreDistribution value=" Neoclassicism " recordCount="0.0"/>
+        <ScoreDistribution value=" Antipodeans " recordCount="4.0"/>
+        <ScoreDistribution value=" Impressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Fauvism " recordCount="0.0"/>
+        <ScoreDistribution value=" Post-Impressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Romanticism " recordCount="0.0"/>
+        <ScoreDistribution value=" Baroque " recordCount="0.0"/>
+        <ScoreDistribution value=" Dutch_Golden_Age_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Pre-Raphaelite_Brotherhood " recordCount="0.0"/>
+        <ScoreDistribution value=" Aestheticism " recordCount="0.0"/>
+        <ScoreDistribution value=" Arts_and_Crafts_movement " recordCount="0.0"/>
+        <ScoreDistribution value=" Cubism " recordCount="0.0"/>
+        <ScoreDistribution value=" Dada " recordCount="0.0"/>
+        <ScoreDistribution value=" Surrealism " recordCount="0.0"/>
+        <ScoreDistribution value=" Baroque_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Luminism_(American_art_style) " recordCount="0.0"/>
+        <ScoreDistribution value=" Regionalism_(art) " recordCount="0.0"/>
+        <ScoreDistribution value=" Angry_Penguins " recordCount="1.0"/>
+        <ScoreDistribution value=" Classicism " recordCount="0.0"/>
+        <ScoreDistribution value=" Sienese_School " recordCount="0.0"/>
+      </Node>
+      <Node id="18" score=" Post-Impressionism " recordCount="64.0">
+        <SimplePredicate field="location" operator="equal" value=" Netherlands "/>
+        <ScoreDistribution value=" Modernism " recordCount="0.0"/>
+        <ScoreDistribution value=" Abstract_expressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Shaped_canvas " recordCount="0.0"/>
+        <ScoreDistribution value=" Minimalism " recordCount="0.0"/>
+        <ScoreDistribution value=" Lyrical_abstraction " recordCount="0.0"/>
+        <ScoreDistribution value=" Color_Field " recordCount="0.0"/>
+        <ScoreDistribution value=" Abstract_Illusionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Hard-edge_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Geometric_abstraction " recordCount="0.0"/>
+        <ScoreDistribution value=" Realism_(arts) " recordCount="0.0"/>
+        <ScoreDistribution value=" Neoclassicism " recordCount="0.0"/>
+        <ScoreDistribution value=" Antipodeans " recordCount="0.0"/>
+        <ScoreDistribution value=" Impressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Fauvism " recordCount="0.0"/>
+        <ScoreDistribution value=" Post-Impressionism " recordCount="47.0"/>
+        <ScoreDistribution value=" Romanticism " recordCount="0.0"/>
+        <ScoreDistribution value=" Baroque " recordCount="7.0"/>
+        <ScoreDistribution value=" Dutch_Golden_Age_painting " recordCount="8.0"/>
+        <ScoreDistribution value=" Pre-Raphaelite_Brotherhood " recordCount="0.0"/>
+        <ScoreDistribution value=" Aestheticism " recordCount="0.0"/>
+        <ScoreDistribution value=" Arts_and_Crafts_movement " recordCount="0.0"/>
+        <ScoreDistribution value=" Cubism " recordCount="0.0"/>
+        <ScoreDistribution value=" Dada " recordCount="0.0"/>
+        <ScoreDistribution value=" Surrealism " recordCount="0.0"/>
+        <ScoreDistribution value=" Baroque_painting " recordCount="2.0"/>
+        <ScoreDistribution value=" Luminism_(American_art_style) " recordCount="0.0"/>
+        <ScoreDistribution value=" Regionalism_(art) " recordCount="0.0"/>
+        <ScoreDistribution value=" Angry_Penguins " recordCount="0.0"/>
+        <ScoreDistribution value=" Classicism " recordCount="0.0"/>
+        <ScoreDistribution value=" Sienese_School " recordCount="0.0"/>
+        <Node id="19" score=" Dutch_Golden_Age_painting " recordCount="17.0">
+          <SimplePredicate field="year" operator="lessOrEqual" value="1773.0"/>
+          <ScoreDistribution value=" Modernism " recordCount="0.0"/>
+          <ScoreDistribution value=" Abstract_expressionism " recordCount="0.0"/>
+          <ScoreDistribution value=" Shaped_canvas " recordCount="0.0"/>
+          <ScoreDistribution value=" Minimalism " recordCount="0.0"/>
+          <ScoreDistribution value=" Lyrical_abstraction " recordCount="0.0"/>
+          <ScoreDistribution value=" Color_Field " recordCount="0.0"/>
+          <ScoreDistribution value=" Abstract_Illusionism " recordCount="0.0"/>
+          <ScoreDistribution value=" Hard-edge_painting " recordCount="0.0"/>
+          <ScoreDistribution value=" Geometric_abstraction " recordCount="0.0"/>
+          <ScoreDistribution value=" Realism_(arts) " recordCount="0.0"/>
+          <ScoreDistribution value=" Neoclassicism " recordCount="0.0"/>
+          <ScoreDistribution value=" Antipodeans " recordCount="0.0"/>
+          <ScoreDistribution value=" Impressionism " recordCount="0.0"/>
+          <ScoreDistribution value=" Fauvism " recordCount="0.0"/>
+          <ScoreDistribution value=" Post-Impressionism " recordCount="0.0"/>
+          <ScoreDistribution value=" Romanticism " recordCount="0.0"/>
+          <ScoreDistribution value=" Baroque " recordCount="7.0"/>
+          <ScoreDistribution value=" Dutch_Golden_Age_painting " recordCount="8.0"/>
+          <ScoreDistribution value=" Pre-Raphaelite_Brotherhood " recordCount="0.0"/>
+          <ScoreDistribution value=" Aestheticism " recordCount="0.0"/>
+          <ScoreDistribution value=" Arts_and_Crafts_movement " recordCount="0.0"/>
+          <ScoreDistribution value=" Cubism " recordCount="0.0"/>
+          <ScoreDistribution value=" Dada " recordCount="0.0"/>
+          <ScoreDistribution value=" Surrealism " recordCount="0.0"/>
+          <ScoreDistribution value=" Baroque_painting " recordCount="2.0"/>
+          <ScoreDistribution value=" Luminism_(American_art_style) " recordCount="0.0"/>
+          <ScoreDistribution value=" Regionalism_(art) " recordCount="0.0"/>
+          <ScoreDistribution value=" Angry_Penguins " recordCount="0.0"/>
+          <ScoreDistribution value=" Classicism " recordCount="0.0"/>
+          <ScoreDistribution value=" Sienese_School " recordCount="0.0"/>
+        </Node>
+        <Node id="24" score=" Post-Impressionism " recordCount="47.0">
+          <SimplePredicate field="year" operator="greaterThan" value="1773.0"/>
+          <ScoreDistribution value=" Modernism " recordCount="0.0"/>
+          <ScoreDistribution value=" Abstract_expressionism " recordCount="0.0"/>
+          <ScoreDistribution value=" Shaped_canvas " recordCount="0.0"/>
+          <ScoreDistribution value=" Minimalism " recordCount="0.0"/>
+          <ScoreDistribution value=" Lyrical_abstraction " recordCount="0.0"/>
+          <ScoreDistribution value=" Color_Field " recordCount="0.0"/>
+          <ScoreDistribution value=" Abstract_Illusionism " recordCount="0.0"/>
+          <ScoreDistribution value=" Hard-edge_painting " recordCount="0.0"/>
+          <ScoreDistribution value=" Geometric_abstraction " recordCount="0.0"/>
+          <ScoreDistribution value=" Realism_(arts) " recordCount="0.0"/>
+          <ScoreDistribution value=" Neoclassicism " recordCount="0.0"/>
+          <ScoreDistribution value=" Antipodeans " recordCount="0.0"/>
+          <ScoreDistribution value=" Impressionism " recordCount="0.0"/>
+          <ScoreDistribution value=" Fauvism " recordCount="0.0"/>
+          <ScoreDistribution value=" Post-Impressionism " recordCount="47.0"/>
+          <ScoreDistribution value=" Romanticism " recordCount="0.0"/>
+          <ScoreDistribution value=" Baroque " recordCount="0.0"/>
+          <ScoreDistribution value=" Dutch_Golden_Age_painting " recordCount="0.0"/>
+          <ScoreDistribution value=" Pre-Raphaelite_Brotherhood " recordCount="0.0"/>
+          <ScoreDistribution value=" Aestheticism " recordCount="0.0"/>
+          <ScoreDistribution value=" Arts_and_Crafts_movement " recordCount="0.0"/>
+          <ScoreDistribution value=" Cubism " recordCount="0.0"/>
+          <ScoreDistribution value=" Dada " recordCount="0.0"/>
+          <ScoreDistribution value=" Surrealism " recordCount="0.0"/>
+          <ScoreDistribution value=" Baroque_painting " recordCount="0.0"/>
+          <ScoreDistribution value=" Luminism_(American_art_style) " recordCount="0.0"/>
+          <ScoreDistribution value=" Regionalism_(art) " recordCount="0.0"/>
+          <ScoreDistribution value=" Angry_Penguins " recordCount="0.0"/>
+          <ScoreDistribution value=" Classicism " recordCount="0.0"/>
+          <ScoreDistribution value=" Sienese_School " recordCount="0.0"/>
+        </Node>
+      </Node>
+      <Node id="25" score=" Surrealism " recordCount="42.0">
+        <SimplePredicate field="location" operator="equal" value=" Spain "/>
+        <ScoreDistribution value=" Modernism " recordCount="0.0"/>
+        <ScoreDistribution value=" Abstract_expressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Shaped_canvas " recordCount="0.0"/>
+        <ScoreDistribution value=" Minimalism " recordCount="0.0"/>
+        <ScoreDistribution value=" Lyrical_abstraction " recordCount="0.0"/>
+        <ScoreDistribution value=" Color_Field " recordCount="0.0"/>
+        <ScoreDistribution value=" Abstract_Illusionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Hard-edge_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Geometric_abstraction " recordCount="0.0"/>
+        <ScoreDistribution value=" Realism_(arts) " recordCount="0.0"/>
+        <ScoreDistribution value=" Neoclassicism " recordCount="0.0"/>
+        <ScoreDistribution value=" Antipodeans " recordCount="0.0"/>
+        <ScoreDistribution value=" Impressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Fauvism " recordCount="0.0"/>
+        <ScoreDistribution value=" Post-Impressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Romanticism " recordCount="0.0"/>
+        <ScoreDistribution value=" Baroque " recordCount="8.0"/>
+        <ScoreDistribution value=" Dutch_Golden_Age_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Pre-Raphaelite_Brotherhood " recordCount="0.0"/>
+        <ScoreDistribution value=" Aestheticism " recordCount="0.0"/>
+        <ScoreDistribution value=" Arts_and_Crafts_movement " recordCount="0.0"/>
+        <ScoreDistribution value=" Cubism " recordCount="11.0"/>
+        <ScoreDistribution value=" Dada " recordCount="11.0"/>
+        <ScoreDistribution value=" Surrealism " recordCount="12.0"/>
+        <ScoreDistribution value=" Baroque_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Luminism_(American_art_style) " recordCount="0.0"/>
+        <ScoreDistribution value=" Regionalism_(art) " recordCount="0.0"/>
+        <ScoreDistribution value=" Angry_Penguins " recordCount="0.0"/>
+        <ScoreDistribution value=" Classicism " recordCount="0.0"/>
+        <ScoreDistribution value=" Sienese_School " recordCount="0.0"/>
+        <Node id="26" score=" Baroque " recordCount="8.0">
+          <SimplePredicate field="year" operator="lessOrEqual" value="1792.5"/>
+          <ScoreDistribution value=" Modernism " recordCount="0.0"/>
+          <ScoreDistribution value=" Abstract_expressionism " recordCount="0.0"/>
+          <ScoreDistribution value=" Shaped_canvas " recordCount="0.0"/>
+          <ScoreDistribution value=" Minimalism " recordCount="0.0"/>
+          <ScoreDistribution value=" Lyrical_abstraction " recordCount="0.0"/>
+          <ScoreDistribution value=" Color_Field " recordCount="0.0"/>
+          <ScoreDistribution value=" Abstract_Illusionism " recordCount="0.0"/>
+          <ScoreDistribution value=" Hard-edge_painting " recordCount="0.0"/>
+          <ScoreDistribution value=" Geometric_abstraction " recordCount="0.0"/>
+          <ScoreDistribution value=" Realism_(arts) " recordCount="0.0"/>
+          <ScoreDistribution value=" Neoclassicism " recordCount="0.0"/>
+          <ScoreDistribution value=" Antipodeans " recordCount="0.0"/>
+          <ScoreDistribution value=" Impressionism " recordCount="0.0"/>
+          <ScoreDistribution value=" Fauvism " recordCount="0.0"/>
+          <ScoreDistribution value=" Post-Impressionism " recordCount="0.0"/>
+          <ScoreDistribution value=" Romanticism " recordCount="0.0"/>
+          <ScoreDistribution value=" Baroque " recordCount="8.0"/>
+          <ScoreDistribution value=" Dutch_Golden_Age_painting " recordCount="0.0"/>
+          <ScoreDistribution value=" Pre-Raphaelite_Brotherhood " recordCount="0.0"/>
+          <ScoreDistribution value=" Aestheticism " recordCount="0.0"/>
+          <ScoreDistribution value=" Arts_and_Crafts_movement " recordCount="0.0"/>
+          <ScoreDistribution value=" Cubism " recordCount="0.0"/>
+          <ScoreDistribution value=" Dada " recordCount="0.0"/>
+          <ScoreDistribution value=" Surrealism " recordCount="0.0"/>
+          <ScoreDistribution value=" Baroque_painting " recordCount="0.0"/>
+          <ScoreDistribution value=" Luminism_(American_art_style) " recordCount="0.0"/>
+          <ScoreDistribution value=" Regionalism_(art) " recordCount="0.0"/>
+          <ScoreDistribution value=" Angry_Penguins " recordCount="0.0"/>
+          <ScoreDistribution value=" Classicism " recordCount="0.0"/>
+          <ScoreDistribution value=" Sienese_School " recordCount="0.0"/>
+        </Node>
+        <Node id="27" score=" Surrealism " recordCount="34.0">
+          <SimplePredicate field="year" operator="greaterThan" value="1792.5"/>
+          <ScoreDistribution value=" Modernism " recordCount="0.0"/>
+          <ScoreDistribution value=" Abstract_expressionism " recordCount="0.0"/>
+          <ScoreDistribution value=" Shaped_canvas " recordCount="0.0"/>
+          <ScoreDistribution value=" Minimalism " recordCount="0.0"/>
+          <ScoreDistribution value=" Lyrical_abstraction " recordCount="0.0"/>
+          <ScoreDistribution value=" Color_Field " recordCount="0.0"/>
+          <ScoreDistribution value=" Abstract_Illusionism " recordCount="0.0"/>
+          <ScoreDistribution value=" Hard-edge_painting " recordCount="0.0"/>
+          <ScoreDistribution value=" Geometric_abstraction " recordCount="0.0"/>
+          <ScoreDistribution value=" Realism_(arts) " recordCount="0.0"/>
+          <ScoreDistribution value=" Neoclassicism " recordCount="0.0"/>
+          <ScoreDistribution value=" Antipodeans " recordCount="0.0"/>
+          <ScoreDistribution value=" Impressionism " recordCount="0.0"/>
+          <ScoreDistribution value=" Fauvism " recordCount="0.0"/>
+          <ScoreDistribution value=" Post-Impressionism " recordCount="0.0"/>
+          <ScoreDistribution value=" Romanticism " recordCount="0.0"/>
+          <ScoreDistribution value=" Baroque " recordCount="0.0"/>
+          <ScoreDistribution value=" Dutch_Golden_Age_painting " recordCount="0.0"/>
+          <ScoreDistribution value=" Pre-Raphaelite_Brotherhood " recordCount="0.0"/>
+          <ScoreDistribution value=" Aestheticism " recordCount="0.0"/>
+          <ScoreDistribution value=" Arts_and_Crafts_movement " recordCount="0.0"/>
+          <ScoreDistribution value=" Cubism " recordCount="11.0"/>
+          <ScoreDistribution value=" Dada " recordCount="11.0"/>
+          <ScoreDistribution value=" Surrealism " recordCount="12.0"/>
+          <ScoreDistribution value=" Baroque_painting " recordCount="0.0"/>
+          <ScoreDistribution value=" Luminism_(American_art_style) " recordCount="0.0"/>
+          <ScoreDistribution value=" Regionalism_(art) " recordCount="0.0"/>
+          <ScoreDistribution value=" Angry_Penguins " recordCount="0.0"/>
+          <ScoreDistribution value=" Classicism " recordCount="0.0"/>
+          <ScoreDistribution value=" Sienese_School " recordCount="0.0"/>
+        </Node>
+      </Node>
+      <Node id="32" score=" Romanticism " recordCount="8.0">
+        <SimplePredicate field="location" operator="equal" value=" United_Kingdom "/>
+        <ScoreDistribution value=" Modernism " recordCount="0.0"/>
+        <ScoreDistribution value=" Abstract_expressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Shaped_canvas " recordCount="0.0"/>
+        <ScoreDistribution value=" Minimalism " recordCount="0.0"/>
+        <ScoreDistribution value=" Lyrical_abstraction " recordCount="0.0"/>
+        <ScoreDistribution value=" Color_Field " recordCount="0.0"/>
+        <ScoreDistribution value=" Abstract_Illusionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Hard-edge_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Geometric_abstraction " recordCount="0.0"/>
+        <ScoreDistribution value=" Realism_(arts) " recordCount="0.0"/>
+        <ScoreDistribution value=" Neoclassicism " recordCount="0.0"/>
+        <ScoreDistribution value=" Antipodeans " recordCount="0.0"/>
+        <ScoreDistribution value=" Impressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Fauvism " recordCount="0.0"/>
+        <ScoreDistribution value=" Post-Impressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Romanticism " recordCount="4.0"/>
+        <ScoreDistribution value=" Baroque " recordCount="0.0"/>
+        <ScoreDistribution value=" Dutch_Golden_Age_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Pre-Raphaelite_Brotherhood " recordCount="1.0"/>
+        <ScoreDistribution value=" Aestheticism " recordCount="2.0"/>
+        <ScoreDistribution value=" Arts_and_Crafts_movement " recordCount="1.0"/>
+        <ScoreDistribution value=" Cubism " recordCount="0.0"/>
+        <ScoreDistribution value=" Dada " recordCount="0.0"/>
+        <ScoreDistribution value=" Surrealism " recordCount="0.0"/>
+        <ScoreDistribution value=" Baroque_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Luminism_(American_art_style) " recordCount="0.0"/>
+        <ScoreDistribution value=" Regionalism_(art) " recordCount="0.0"/>
+        <ScoreDistribution value=" Angry_Penguins " recordCount="0.0"/>
+        <ScoreDistribution value=" Classicism " recordCount="0.0"/>
+        <ScoreDistribution value=" Sienese_School " recordCount="0.0"/>
+      </Node>
+      <Node id="35" score=" Romanticism " recordCount="5.0">
+        <SimplePredicate field="location" operator="equal" value=" England "/>
+        <ScoreDistribution value=" Modernism " recordCount="0.0"/>
+        <ScoreDistribution value=" Abstract_expressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Shaped_canvas " recordCount="0.0"/>
+        <ScoreDistribution value=" Minimalism " recordCount="0.0"/>
+        <ScoreDistribution value=" Lyrical_abstraction " recordCount="0.0"/>
+        <ScoreDistribution value=" Color_Field " recordCount="0.0"/>
+        <ScoreDistribution value=" Abstract_Illusionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Hard-edge_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Geometric_abstraction " recordCount="0.0"/>
+        <ScoreDistribution value=" Realism_(arts) " recordCount="0.0"/>
+        <ScoreDistribution value=" Neoclassicism " recordCount="0.0"/>
+        <ScoreDistribution value=" Antipodeans " recordCount="0.0"/>
+        <ScoreDistribution value=" Impressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Fauvism " recordCount="0.0"/>
+        <ScoreDistribution value=" Post-Impressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Romanticism " recordCount="2.0"/>
+        <ScoreDistribution value=" Baroque " recordCount="0.0"/>
+        <ScoreDistribution value=" Dutch_Golden_Age_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Pre-Raphaelite_Brotherhood " recordCount="2.0"/>
+        <ScoreDistribution value=" Aestheticism " recordCount="0.0"/>
+        <ScoreDistribution value=" Arts_and_Crafts_movement " recordCount="1.0"/>
+        <ScoreDistribution value=" Cubism " recordCount="0.0"/>
+        <ScoreDistribution value=" Dada " recordCount="0.0"/>
+        <ScoreDistribution value=" Surrealism " recordCount="0.0"/>
+        <ScoreDistribution value=" Baroque_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Luminism_(American_art_style) " recordCount="0.0"/>
+        <ScoreDistribution value=" Regionalism_(art) " recordCount="0.0"/>
+        <ScoreDistribution value=" Angry_Penguins " recordCount="0.0"/>
+        <ScoreDistribution value=" Classicism " recordCount="0.0"/>
+        <ScoreDistribution value=" Sienese_School " recordCount="0.0"/>
+      </Node>
+      <Node id="36" score=" Baroque " recordCount="2.0">
+        <SimplePredicate field="location" operator="equal" value=" South_Holland "/>
+        <ScoreDistribution value=" Modernism " recordCount="0.0"/>
+        <ScoreDistribution value=" Abstract_expressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Shaped_canvas " recordCount="0.0"/>
+        <ScoreDistribution value=" Minimalism " recordCount="0.0"/>
+        <ScoreDistribution value=" Lyrical_abstraction " recordCount="0.0"/>
+        <ScoreDistribution value=" Color_Field " recordCount="0.0"/>
+        <ScoreDistribution value=" Abstract_Illusionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Hard-edge_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Geometric_abstraction " recordCount="0.0"/>
+        <ScoreDistribution value=" Realism_(arts) " recordCount="0.0"/>
+        <ScoreDistribution value=" Neoclassicism " recordCount="0.0"/>
+        <ScoreDistribution value=" Antipodeans " recordCount="0.0"/>
+        <ScoreDistribution value=" Impressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Fauvism " recordCount="0.0"/>
+        <ScoreDistribution value=" Post-Impressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Romanticism " recordCount="0.0"/>
+        <ScoreDistribution value=" Baroque " recordCount="1.0"/>
+        <ScoreDistribution value=" Dutch_Golden_Age_painting " recordCount="1.0"/>
+        <ScoreDistribution value=" Pre-Raphaelite_Brotherhood " recordCount="0.0"/>
+        <ScoreDistribution value=" Aestheticism " recordCount="0.0"/>
+        <ScoreDistribution value=" Arts_and_Crafts_movement " recordCount="0.0"/>
+        <ScoreDistribution value=" Cubism " recordCount="0.0"/>
+        <ScoreDistribution value=" Dada " recordCount="0.0"/>
+        <ScoreDistribution value=" Surrealism " recordCount="0.0"/>
+        <ScoreDistribution value=" Baroque_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Luminism_(American_art_style) " recordCount="0.0"/>
+        <ScoreDistribution value=" Regionalism_(art) " recordCount="0.0"/>
+        <ScoreDistribution value=" Angry_Penguins " recordCount="0.0"/>
+        <ScoreDistribution value=" Classicism " recordCount="0.0"/>
+        <ScoreDistribution value=" Sienese_School " recordCount="0.0"/>
+      </Node>
+      <Node id="37" score=" Baroque " recordCount="1.0">
+        <SimplePredicate field="location" operator="equal" value=" Rotterdam "/>
+        <ScoreDistribution value=" Modernism " recordCount="0.0"/>
+        <ScoreDistribution value=" Abstract_expressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Shaped_canvas " recordCount="0.0"/>
+        <ScoreDistribution value=" Minimalism " recordCount="0.0"/>
+        <ScoreDistribution value=" Lyrical_abstraction " recordCount="0.0"/>
+        <ScoreDistribution value=" Color_Field " recordCount="0.0"/>
+        <ScoreDistribution value=" Abstract_Illusionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Hard-edge_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Geometric_abstraction " recordCount="0.0"/>
+        <ScoreDistribution value=" Realism_(arts) " recordCount="0.0"/>
+        <ScoreDistribution value=" Neoclassicism " recordCount="0.0"/>
+        <ScoreDistribution value=" Antipodeans " recordCount="0.0"/>
+        <ScoreDistribution value=" Impressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Fauvism " recordCount="0.0"/>
+        <ScoreDistribution value=" Post-Impressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Romanticism " recordCount="0.0"/>
+        <ScoreDistribution value=" Baroque " recordCount="1.0"/>
+        <ScoreDistribution value=" Dutch_Golden_Age_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Pre-Raphaelite_Brotherhood " recordCount="0.0"/>
+        <ScoreDistribution value=" Aestheticism " recordCount="0.0"/>
+        <ScoreDistribution value=" Arts_and_Crafts_movement " recordCount="0.0"/>
+        <ScoreDistribution value=" Cubism " recordCount="0.0"/>
+        <ScoreDistribution value=" Dada " recordCount="0.0"/>
+        <ScoreDistribution value=" Surrealism " recordCount="0.0"/>
+        <ScoreDistribution value=" Baroque_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Luminism_(American_art_style) " recordCount="0.0"/>
+        <ScoreDistribution value=" Regionalism_(art) " recordCount="0.0"/>
+        <ScoreDistribution value=" Angry_Penguins " recordCount="0.0"/>
+        <ScoreDistribution value=" Classicism " recordCount="0.0"/>
+        <ScoreDistribution value=" Sienese_School " recordCount="0.0"/>
+      </Node>
+      <Node id="38" score=" Surrealism " recordCount="1.0">
+        <SimplePredicate field="location" operator="equal" value=" Barcelona "/>
+        <ScoreDistribution value=" Modernism " recordCount="0.0"/>
+        <ScoreDistribution value=" Abstract_expressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Shaped_canvas " recordCount="0.0"/>
+        <ScoreDistribution value=" Minimalism " recordCount="0.0"/>
+        <ScoreDistribution value=" Lyrical_abstraction " recordCount="0.0"/>
+        <ScoreDistribution value=" Color_Field " recordCount="0.0"/>
+        <ScoreDistribution value=" Abstract_Illusionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Hard-edge_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Geometric_abstraction " recordCount="0.0"/>
+        <ScoreDistribution value=" Realism_(arts) " recordCount="0.0"/>
+        <ScoreDistribution value=" Neoclassicism " recordCount="0.0"/>
+        <ScoreDistribution value=" Antipodeans " recordCount="0.0"/>
+        <ScoreDistribution value=" Impressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Fauvism " recordCount="0.0"/>
+        <ScoreDistribution value=" Post-Impressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Romanticism " recordCount="0.0"/>
+        <ScoreDistribution value=" Baroque " recordCount="0.0"/>
+        <ScoreDistribution value=" Dutch_Golden_Age_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Pre-Raphaelite_Brotherhood " recordCount="0.0"/>
+        <ScoreDistribution value=" Aestheticism " recordCount="0.0"/>
+        <ScoreDistribution value=" Arts_and_Crafts_movement " recordCount="0.0"/>
+        <ScoreDistribution value=" Cubism " recordCount="0.0"/>
+        <ScoreDistribution value=" Dada " recordCount="0.0"/>
+        <ScoreDistribution value=" Surrealism " recordCount="1.0"/>
+        <ScoreDistribution value=" Baroque_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Luminism_(American_art_style) " recordCount="0.0"/>
+        <ScoreDistribution value=" Regionalism_(art) " recordCount="0.0"/>
+        <ScoreDistribution value=" Angry_Penguins " recordCount="0.0"/>
+        <ScoreDistribution value=" Classicism " recordCount="0.0"/>
+        <ScoreDistribution value=" Sienese_School " recordCount="0.0"/>
+      </Node>
+      <Node id="39" score=" Surrealism " recordCount="1.0">
+        <SimplePredicate field="location" operator="equal" value=" Catalonia "/>
+        <ScoreDistribution value=" Modernism " recordCount="0.0"/>
+        <ScoreDistribution value=" Abstract_expressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Shaped_canvas " recordCount="0.0"/>
+        <ScoreDistribution value=" Minimalism " recordCount="0.0"/>
+        <ScoreDistribution value=" Lyrical_abstraction " recordCount="0.0"/>
+        <ScoreDistribution value=" Color_Field " recordCount="0.0"/>
+        <ScoreDistribution value=" Abstract_Illusionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Hard-edge_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Geometric_abstraction " recordCount="0.0"/>
+        <ScoreDistribution value=" Realism_(arts) " recordCount="0.0"/>
+        <ScoreDistribution value=" Neoclassicism " recordCount="0.0"/>
+        <ScoreDistribution value=" Antipodeans " recordCount="0.0"/>
+        <ScoreDistribution value=" Impressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Fauvism " recordCount="0.0"/>
+        <ScoreDistribution value=" Post-Impressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Romanticism " recordCount="0.0"/>
+        <ScoreDistribution value=" Baroque " recordCount="0.0"/>
+        <ScoreDistribution value=" Dutch_Golden_Age_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Pre-Raphaelite_Brotherhood " recordCount="0.0"/>
+        <ScoreDistribution value=" Aestheticism " recordCount="0.0"/>
+        <ScoreDistribution value=" Arts_and_Crafts_movement " recordCount="0.0"/>
+        <ScoreDistribution value=" Cubism " recordCount="0.0"/>
+        <ScoreDistribution value=" Dada " recordCount="0.0"/>
+        <ScoreDistribution value=" Surrealism " recordCount="1.0"/>
+        <ScoreDistribution value=" Baroque_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Luminism_(American_art_style) " recordCount="0.0"/>
+        <ScoreDistribution value=" Regionalism_(art) " recordCount="0.0"/>
+        <ScoreDistribution value=" Angry_Penguins " recordCount="0.0"/>
+        <ScoreDistribution value=" Classicism " recordCount="0.0"/>
+        <ScoreDistribution value=" Sienese_School " recordCount="0.0"/>
+      </Node>
+      <Node id="40" score=" Dada " recordCount="1.0">
+        <SimplePredicate field="location" operator="equal" value=" Barcelon%C3%A8s "/>
+        <ScoreDistribution value=" Modernism " recordCount="0.0"/>
+        <ScoreDistribution value=" Abstract_expressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Shaped_canvas " recordCount="0.0"/>
+        <ScoreDistribution value=" Minimalism " recordCount="0.0"/>
+        <ScoreDistribution value=" Lyrical_abstraction " recordCount="0.0"/>
+        <ScoreDistribution value=" Color_Field " recordCount="0.0"/>
+        <ScoreDistribution value=" Abstract_Illusionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Hard-edge_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Geometric_abstraction " recordCount="0.0"/>
+        <ScoreDistribution value=" Realism_(arts) " recordCount="0.0"/>
+        <ScoreDistribution value=" Neoclassicism " recordCount="0.0"/>
+        <ScoreDistribution value=" Antipodeans " recordCount="0.0"/>
+        <ScoreDistribution value=" Impressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Fauvism " recordCount="0.0"/>
+        <ScoreDistribution value=" Post-Impressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Romanticism " recordCount="0.0"/>
+        <ScoreDistribution value=" Baroque " recordCount="0.0"/>
+        <ScoreDistribution value=" Dutch_Golden_Age_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Pre-Raphaelite_Brotherhood " recordCount="0.0"/>
+        <ScoreDistribution value=" Aestheticism " recordCount="0.0"/>
+        <ScoreDistribution value=" Arts_and_Crafts_movement " recordCount="0.0"/>
+        <ScoreDistribution value=" Cubism " recordCount="0.0"/>
+        <ScoreDistribution value=" Dada " recordCount="1.0"/>
+        <ScoreDistribution value=" Surrealism " recordCount="0.0"/>
+        <ScoreDistribution value=" Baroque_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Luminism_(American_art_style) " recordCount="0.0"/>
+        <ScoreDistribution value=" Regionalism_(art) " recordCount="0.0"/>
+        <ScoreDistribution value=" Angry_Penguins " recordCount="0.0"/>
+        <ScoreDistribution value=" Classicism " recordCount="0.0"/>
+        <ScoreDistribution value=" Sienese_School " recordCount="0.0"/>
+      </Node>
+      <Node id="41" score=" Dada " recordCount="2.0">
+        <SimplePredicate field="location" operator="equal" value=" Province_of_Barcelona "/>
+        <ScoreDistribution value=" Modernism " recordCount="0.0"/>
+        <ScoreDistribution value=" Abstract_expressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Shaped_canvas " recordCount="0.0"/>
+        <ScoreDistribution value=" Minimalism " recordCount="0.0"/>
+        <ScoreDistribution value=" Lyrical_abstraction " recordCount="0.0"/>
+        <ScoreDistribution value=" Color_Field " recordCount="0.0"/>
+        <ScoreDistribution value=" Abstract_Illusionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Hard-edge_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Geometric_abstraction " recordCount="0.0"/>
+        <ScoreDistribution value=" Realism_(arts) " recordCount="0.0"/>
+        <ScoreDistribution value=" Neoclassicism " recordCount="0.0"/>
+        <ScoreDistribution value=" Antipodeans " recordCount="0.0"/>
+        <ScoreDistribution value=" Impressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Fauvism " recordCount="0.0"/>
+        <ScoreDistribution value=" Post-Impressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Romanticism " recordCount="0.0"/>
+        <ScoreDistribution value=" Baroque " recordCount="0.0"/>
+        <ScoreDistribution value=" Dutch_Golden_Age_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Pre-Raphaelite_Brotherhood " recordCount="0.0"/>
+        <ScoreDistribution value=" Aestheticism " recordCount="0.0"/>
+        <ScoreDistribution value=" Arts_and_Crafts_movement " recordCount="0.0"/>
+        <ScoreDistribution value=" Cubism " recordCount="0.0"/>
+        <ScoreDistribution value=" Dada " recordCount="1.0"/>
+        <ScoreDistribution value=" Surrealism " recordCount="1.0"/>
+        <ScoreDistribution value=" Baroque_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Luminism_(American_art_style) " recordCount="0.0"/>
+        <ScoreDistribution value=" Regionalism_(art) " recordCount="0.0"/>
+        <ScoreDistribution value=" Angry_Penguins " recordCount="0.0"/>
+        <ScoreDistribution value=" Classicism " recordCount="0.0"/>
+        <ScoreDistribution value=" Sienese_School " recordCount="0.0"/>
+      </Node>
+      <Node id="42" score=" Realism_(arts) " recordCount="2.0">
+        <SimplePredicate field="location" operator="equal" value=" Philadelphia "/>
+        <ScoreDistribution value=" Modernism " recordCount="0.0"/>
+        <ScoreDistribution value=" Abstract_expressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Shaped_canvas " recordCount="0.0"/>
+        <ScoreDistribution value=" Minimalism " recordCount="0.0"/>
+        <ScoreDistribution value=" Lyrical_abstraction " recordCount="0.0"/>
+        <ScoreDistribution value=" Color_Field " recordCount="0.0"/>
+        <ScoreDistribution value=" Abstract_Illusionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Hard-edge_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Geometric_abstraction " recordCount="0.0"/>
+        <ScoreDistribution value=" Realism_(arts) " recordCount="2.0"/>
+        <ScoreDistribution value=" Neoclassicism " recordCount="0.0"/>
+        <ScoreDistribution value=" Antipodeans " recordCount="0.0"/>
+        <ScoreDistribution value=" Impressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Fauvism " recordCount="0.0"/>
+        <ScoreDistribution value=" Post-Impressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Romanticism " recordCount="0.0"/>
+        <ScoreDistribution value=" Baroque " recordCount="0.0"/>
+        <ScoreDistribution value=" Dutch_Golden_Age_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Pre-Raphaelite_Brotherhood " recordCount="0.0"/>
+        <ScoreDistribution value=" Aestheticism " recordCount="0.0"/>
+        <ScoreDistribution value=" Arts_and_Crafts_movement " recordCount="0.0"/>
+        <ScoreDistribution value=" Cubism " recordCount="0.0"/>
+        <ScoreDistribution value=" Dada " recordCount="0.0"/>
+        <ScoreDistribution value=" Surrealism " recordCount="0.0"/>
+        <ScoreDistribution value=" Baroque_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Luminism_(American_art_style) " recordCount="0.0"/>
+        <ScoreDistribution value=" Regionalism_(art) " recordCount="0.0"/>
+        <ScoreDistribution value=" Angry_Penguins " recordCount="0.0"/>
+        <ScoreDistribution value=" Classicism " recordCount="0.0"/>
+        <ScoreDistribution value=" Sienese_School " recordCount="0.0"/>
+      </Node>
+      <Node id="43" score=" Realism_(arts) " recordCount="2.0">
+        <SimplePredicate field="location" operator="equal" value=" Pennsylvania "/>
+        <ScoreDistribution value=" Modernism " recordCount="0.0"/>
+        <ScoreDistribution value=" Abstract_expressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Shaped_canvas " recordCount="0.0"/>
+        <ScoreDistribution value=" Minimalism " recordCount="0.0"/>
+        <ScoreDistribution value=" Lyrical_abstraction " recordCount="0.0"/>
+        <ScoreDistribution value=" Color_Field " recordCount="0.0"/>
+        <ScoreDistribution value=" Abstract_Illusionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Hard-edge_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Geometric_abstraction " recordCount="0.0"/>
+        <ScoreDistribution value=" Realism_(arts) " recordCount="2.0"/>
+        <ScoreDistribution value=" Neoclassicism " recordCount="0.0"/>
+        <ScoreDistribution value=" Antipodeans " recordCount="0.0"/>
+        <ScoreDistribution value=" Impressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Fauvism " recordCount="0.0"/>
+        <ScoreDistribution value=" Post-Impressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Romanticism " recordCount="0.0"/>
+        <ScoreDistribution value=" Baroque " recordCount="0.0"/>
+        <ScoreDistribution value=" Dutch_Golden_Age_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Pre-Raphaelite_Brotherhood " recordCount="0.0"/>
+        <ScoreDistribution value=" Aestheticism " recordCount="0.0"/>
+        <ScoreDistribution value=" Arts_and_Crafts_movement " recordCount="0.0"/>
+        <ScoreDistribution value=" Cubism " recordCount="0.0"/>
+        <ScoreDistribution value=" Dada " recordCount="0.0"/>
+        <ScoreDistribution value=" Surrealism " recordCount="0.0"/>
+        <ScoreDistribution value=" Baroque_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Luminism_(American_art_style) " recordCount="0.0"/>
+        <ScoreDistribution value=" Regionalism_(art) " recordCount="0.0"/>
+        <ScoreDistribution value=" Angry_Penguins " recordCount="0.0"/>
+        <ScoreDistribution value=" Classicism " recordCount="0.0"/>
+        <ScoreDistribution value=" Sienese_School " recordCount="0.0"/>
+      </Node>
+      <Node id="44" score=" Realism_(arts) " recordCount="1.0">
+        <SimplePredicate field="location" operator="equal" value=" Philadelphia_County,_Pennsylvania "/>
+        <ScoreDistribution value=" Modernism " recordCount="0.0"/>
+        <ScoreDistribution value=" Abstract_expressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Shaped_canvas " recordCount="0.0"/>
+        <ScoreDistribution value=" Minimalism " recordCount="0.0"/>
+        <ScoreDistribution value=" Lyrical_abstraction " recordCount="0.0"/>
+        <ScoreDistribution value=" Color_Field " recordCount="0.0"/>
+        <ScoreDistribution value=" Abstract_Illusionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Hard-edge_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Geometric_abstraction " recordCount="0.0"/>
+        <ScoreDistribution value=" Realism_(arts) " recordCount="1.0"/>
+        <ScoreDistribution value=" Neoclassicism " recordCount="0.0"/>
+        <ScoreDistribution value=" Antipodeans " recordCount="0.0"/>
+        <ScoreDistribution value=" Impressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Fauvism " recordCount="0.0"/>
+        <ScoreDistribution value=" Post-Impressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Romanticism " recordCount="0.0"/>
+        <ScoreDistribution value=" Baroque " recordCount="0.0"/>
+        <ScoreDistribution value=" Dutch_Golden_Age_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Pre-Raphaelite_Brotherhood " recordCount="0.0"/>
+        <ScoreDistribution value=" Aestheticism " recordCount="0.0"/>
+        <ScoreDistribution value=" Arts_and_Crafts_movement " recordCount="0.0"/>
+        <ScoreDistribution value=" Cubism " recordCount="0.0"/>
+        <ScoreDistribution value=" Dada " recordCount="0.0"/>
+        <ScoreDistribution value=" Surrealism " recordCount="0.0"/>
+        <ScoreDistribution value=" Baroque_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Luminism_(American_art_style) " recordCount="0.0"/>
+        <ScoreDistribution value=" Regionalism_(art) " recordCount="0.0"/>
+        <ScoreDistribution value=" Angry_Penguins " recordCount="0.0"/>
+        <ScoreDistribution value=" Classicism " recordCount="0.0"/>
+        <ScoreDistribution value=" Sienese_School " recordCount="0.0"/>
+      </Node>
+      <Node id="45" score=" Sienese_School " recordCount="3.0">
+        <SimplePredicate field="location" operator="equal" value=" Italy "/>
+        <ScoreDistribution value=" Modernism " recordCount="0.0"/>
+        <ScoreDistribution value=" Abstract_expressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Shaped_canvas " recordCount="0.0"/>
+        <ScoreDistribution value=" Minimalism " recordCount="0.0"/>
+        <ScoreDistribution value=" Lyrical_abstraction " recordCount="0.0"/>
+        <ScoreDistribution value=" Color_Field " recordCount="0.0"/>
+        <ScoreDistribution value=" Abstract_Illusionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Hard-edge_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Geometric_abstraction " recordCount="0.0"/>
+        <ScoreDistribution value=" Realism_(arts) " recordCount="0.0"/>
+        <ScoreDistribution value=" Neoclassicism " recordCount="0.0"/>
+        <ScoreDistribution value=" Antipodeans " recordCount="0.0"/>
+        <ScoreDistribution value=" Impressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Fauvism " recordCount="0.0"/>
+        <ScoreDistribution value=" Post-Impressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Romanticism " recordCount="0.0"/>
+        <ScoreDistribution value=" Baroque " recordCount="1.0"/>
+        <ScoreDistribution value=" Dutch_Golden_Age_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Pre-Raphaelite_Brotherhood " recordCount="0.0"/>
+        <ScoreDistribution value=" Aestheticism " recordCount="0.0"/>
+        <ScoreDistribution value=" Arts_and_Crafts_movement " recordCount="0.0"/>
+        <ScoreDistribution value=" Cubism " recordCount="0.0"/>
+        <ScoreDistribution value=" Dada " recordCount="0.0"/>
+        <ScoreDistribution value=" Surrealism " recordCount="0.0"/>
+        <ScoreDistribution value=" Baroque_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Luminism_(American_art_style) " recordCount="0.0"/>
+        <ScoreDistribution value=" Regionalism_(art) " recordCount="0.0"/>
+        <ScoreDistribution value=" Angry_Penguins " recordCount="0.0"/>
+        <ScoreDistribution value=" Classicism " recordCount="0.0"/>
+        <ScoreDistribution value=" Sienese_School " recordCount="2.0"/>
+      </Node>
+      <Node id="46" score=" Realism_(arts) " recordCount="1.0">
+        <SimplePredicate field="location" operator="equal" value=" Russia "/>
+        <ScoreDistribution value=" Modernism " recordCount="0.0"/>
+        <ScoreDistribution value=" Abstract_expressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Shaped_canvas " recordCount="0.0"/>
+        <ScoreDistribution value=" Minimalism " recordCount="0.0"/>
+        <ScoreDistribution value=" Lyrical_abstraction " recordCount="0.0"/>
+        <ScoreDistribution value=" Color_Field " recordCount="0.0"/>
+        <ScoreDistribution value=" Abstract_Illusionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Hard-edge_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Geometric_abstraction " recordCount="0.0"/>
+        <ScoreDistribution value=" Realism_(arts) " recordCount="1.0"/>
+        <ScoreDistribution value=" Neoclassicism " recordCount="0.0"/>
+        <ScoreDistribution value=" Antipodeans " recordCount="0.0"/>
+        <ScoreDistribution value=" Impressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Fauvism " recordCount="0.0"/>
+        <ScoreDistribution value=" Post-Impressionism " recordCount="0.0"/>
+        <ScoreDistribution value=" Romanticism " recordCount="0.0"/>
+        <ScoreDistribution value=" Baroque " recordCount="0.0"/>
+        <ScoreDistribution value=" Dutch_Golden_Age_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Pre-Raphaelite_Brotherhood " recordCount="0.0"/>
+        <ScoreDistribution value=" Aestheticism " recordCount="0.0"/>
+        <ScoreDistribution value=" Arts_and_Crafts_movement " recordCount="0.0"/>
+        <ScoreDistribution value=" Cubism " recordCount="0.0"/>
+        <ScoreDistribution value=" Dada " recordCount="0.0"/>
+        <ScoreDistribution value=" Surrealism " recordCount="0.0"/>
+        <ScoreDistribution value=" Baroque_painting " recordCount="0.0"/>
+        <ScoreDistribution value=" Luminism_(American_art_style) " recordCount="0.0"/>
+        <ScoreDistribution value=" Regionalism_(art) " recordCount="0.0"/>
+        <ScoreDistribution value=" Angry_Penguins " recordCount="0.0"/>
+        <ScoreDistribution value=" Classicism " recordCount="0.0"/>
+        <ScoreDistribution value=" Sienese_School " recordCount="0.0"/>
+      </Node>
+    </Node>
+  </TreeModel>
+</PMML>
