@@ -42,6 +42,13 @@
     </div>
 </div>
 <div class="results-wrap">
+    {% if recommendations %}
+        <p><b>You might also like the following:</b></p>
+        {% for recommendation in recommendations %}
+            <a href="/search?arg={{ recommendation }}">{{ recommendation }}</a>
+        {% endfor %}
+        <br/><br/>
+    {% endif %}
     {% if abstract %}
         <p>{{ abstract }}</p>
     {% endif %}
@@ -55,16 +62,6 @@
             </div>
         {% endfor %}
     {% endif %}
-
-</div>
-{% if recommendations %}
-
-    <div class="recommendations">
-    <p><b>You might also like the following:</b></p>
-    {% for recommendation in recommendations %}
-        <p>{{ recommendation }}</p>
-    {% endfor %}
-{% endif %}
 </div>
 </body>
 </html>
