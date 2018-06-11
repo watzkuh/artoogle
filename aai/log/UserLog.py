@@ -1,8 +1,4 @@
-import time
-
-logs = {}
-observers = []
-
+import collections
 
 def get_log(self, id):
     self.count = self.count + 1
@@ -15,7 +11,6 @@ def get_log(self, id):
 
 
 class UserLog:
-    logs = {}
     observers = []
     id = ""
     count = 0
@@ -23,7 +18,7 @@ class UserLog:
 
     def __init__(self, id):
         self.id = id
-        self.logs = {}
+        self.logs = collections.deque(maxlen=2)
 
     def get_logs(self):
         self.count = self.count + 1
@@ -31,11 +26,10 @@ class UserLog:
 
     def add_search(self, argument):
         self.count = self.count + 1
-        self.logs[time.time()] = {"VALUE": argument, "TYPE": self.LOG_TYPE_SEARCH}
+        self.logs.append({"VALUE": argument, "TYPE": self.LOG_TYPE_SEARCH})
         print("log for " + self.id)
-        logs = self.logs
         for delay, observer in self.observers:
-            observer.on_log(self.id, logs)
+            observer.on_log(self.id, self.logs)
 
     def get_id(self):
         return self.id

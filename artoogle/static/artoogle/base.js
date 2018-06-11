@@ -15,14 +15,14 @@ $(document).ready(function () {
 });
 
 
-function onLanguageSekection(a) {
+function onLanguageSelection(a) {
     console.log(a.value);
     $.cookie("lang", a.value);
     window.location.reload();
 }
 
 function onSearch(request, response) {
-    $.getJSON("/autosuggest", {"arg": request.term}, function (data) {
+    $.getJSON("/autosuggest", {"arg":   request.term}, function (data) {
         let suggestions = [];
         data["suggestions"].forEach(function (entry) {
             suggestions.push(decodeURI(entry));

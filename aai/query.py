@@ -64,12 +64,11 @@ class RDFQueries:
                 PREFIX db: <http://dbpedia.org/resource/>
                 PREFIX dbo: <http://dbpedia.org/ontology/>
                 SELECT ?l WHERE {{
-                    ?a dbo:movement/rdfs:label "High Renaissance"@en.
+                    ?a dbo:movement/rdfs:label "%s"@en.
                     ?a rdfs:label ?l
                 }}
         """
-        #print(string % movement)
-        q = sparql.prepareQuery(string)
+        q = sparql.prepareQuery(string % movement)
         res = self.g.query(q)
         artists = []
         for row in res:

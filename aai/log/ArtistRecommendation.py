@@ -1,3 +1,6 @@
+import collections
+
+
 class ArtistRecommendation:
     db = {}
     recommendations = {}
@@ -7,26 +10,24 @@ class ArtistRecommendation:
 
     def on_log(self, id, logs):
         artists = []
-        movements = {}
-        for key, value in logs.items():
-            artist = value["VALUE"]
+        movements = collections.deque(maxlen=2)
+        for log in logs:
+            artist = log["VALUE"]
             if artist in artists:
                 continue
             else:
                 artists.append(artist)
 
             movement = self.db.get_movement(artist)
+            print(movement)
             if not movement:
                 continue
-
-            count = movements.get(movement)
-            if not count:
-                count = 0
-            count = count + 1
-            movements[movement] = count
-            if movements.get(movement) > 1:
-
-                self.recommendations[id] = movement
+            movements.append(movement)
+            previous = ""
+            for mov in movements:
+                if previous == mov:
+                    self.recommendations[id] = movement
+                previous = mov
 
     def get_recommendations(self, id):
         return self.db.get_artists_for_movement(self.recommendations.get(id))

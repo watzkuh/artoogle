@@ -26,6 +26,9 @@ def search(request):
     search_terms = str(request.GET.get('arg'))
     search_terms = search_terms.replace(' ', '_')
     search_terms = urllib.parse.quote(search_terms)
+    search_terms = search_terms.replace('%28', '(')
+    search_terms = search_terms.replace('%29', ')')
+
     # Hilarious eastergg following
     if search_terms == 'bob ross':
         image_data = open("C:/Users/Naschinsui/PycharmProjects/aai/artoogle/static/artoogle/bob.jpg", "rb").read()
@@ -34,7 +37,8 @@ def search(request):
     abstract = pool.get_abstract(search_terms)
     images = pool.get_art(search_terms)
     log = logLoader.get_log(get_client_ip(request))
-    log.add_search(search_terms)
+    if search_terms:
+        log.add_search(search_terms)
 
     lang = request.COOKIES.get('lang')
     if lang in languages:
