@@ -15,7 +15,7 @@ $(document).ready(function () {
 });
 
 
-function onLanguageSekection(a) {
+function onLanguageSelection(a) {
     console.log(a.value);
     $.cookie("lang", a.value);
     window.location.reload();
