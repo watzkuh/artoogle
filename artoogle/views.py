@@ -30,9 +30,8 @@ def search(request):
     lang = request.COOKIES.get('lang')
     if lang in languages:
         abstract, _ = deepl.translate(abstract, source='EN', target=lang)
-        for path, title in images.items():
+        #for path, title in images.items():
             # images[path], _ = deepl.translate(title, source='EN', target=lang)
-            images[path] = title
 
     return render(request, 'artoogle/index.html', {
         'abstract': abstract,
