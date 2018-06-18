@@ -21,6 +21,7 @@ class ArtistRecommendation:
             movement = self.db.get_movement(artist)
             print(movement)
             if not movement:
+                # TODO: Call our movement classifier
                 continue
             movements.append(movement)
             previous = ""
