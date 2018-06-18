@@ -3,7 +3,7 @@ import urllib
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.template import loader
-import aai.suggestion as sgst
+import aai.autosuggest as sgst
 import aai.query as query
 import deepl
 
@@ -16,6 +16,7 @@ languages = ['DE', 'FR', 'ES', 'IT', 'NL', 'PL']
 recommender = ArtistRecommendation(pool)
 logLoader = LogLoader()
 logLoader.register(0, recommender)
+
 
 def index(request):
     template = loader.get_template('artoogle/index.html')
@@ -30,9 +31,9 @@ def search(request):
     search_terms = search_terms.replace('%29', ')')
 
     # Hilarious eastergg following
-    if search_terms == 'bob ross':
-        image_data = open("C:/Users/Naschinsui/PycharmProjects/aai/artoogle/static/artoogle/bob.jpg", "rb").read()
-        return HttpResponse(image_data, content_type="image/png")
+    if search_terms == 'bob_ross':
+        webite = '<head><meta http-equiv="refresh" content="0; url=https://geekandsundry.com/wp-content/uploads/2017/07/Bob-Ross-The-Art-of-Chill-featured.jpg"/></head>'
+        return HttpResponse(webite, content_type="text")
 
     abstract = pool.get_abstract(search_terms)
     images = pool.get_art(search_terms)
@@ -43,8 +44,8 @@ def search(request):
     lang = request.COOKIES.get('lang')
     if lang in languages:
         abstract, _ = deepl.translate(abstract, source='EN', target=lang)
-        #for path, title in images.items():
-            # images[path], _ = deepl.translate(title, source='EN', target=lang)
+        # for path, title in images.items():
+        # images[path], _ = deepl.translate(title, source='EN', target=lang)
 
     recommendations = recommender.get_recommendations(get_client_ip(request))
     print("recommendations für ", get_client_ip(request))
@@ -53,7 +54,7 @@ def search(request):
     return render(request, 'artoogle/index.html', {
         'abstract': abstract,
         'images': images,
-        'recommendations' : recommendations
+        'recommendations': recommendations
     })
 
 

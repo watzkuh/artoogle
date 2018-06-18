@@ -59,7 +59,11 @@ def search(query_string):
             for hit in results:
                 try:
                     query = qp.parse(hit + '*')
-                    res = searcher.search(query, limit=limit-len(json_A))
+                    limit = limit - len(json_A)
+                    if limit >= 1:
+                        res = searcher.search(query, limit=limit)
+                    else:
+                        res = searcher.search(query, limit=5)
                 except TermNotFound:
                     res = []
                 for h in res:

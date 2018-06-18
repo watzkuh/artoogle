@@ -1,5 +1,5 @@
 import collections
-
+import aai.predict as p
 
 class ArtistRecommendation:
     db = {}
@@ -21,8 +21,14 @@ class ArtistRecommendation:
             movement = self.db.get_movement(artist)
             print(movement)
             if not movement:
-                # TODO: Call our movement classifier
-                continue
+                birthDate = self.db.get_birthdate(artist)
+                if birthDate:
+                    birthDate = birthDate.split("-")[0]
+                birthPlace = self.db.get_birthplace(artist)
+                if not birthPlace:
+                    birthPlace = "Buxtehude"
+                movement = p.predict_movement(birthPlace, birthDate)
+                print("Prediction: ", movement)
             movements.append(movement)
             previous = ""
             for mov in movements:

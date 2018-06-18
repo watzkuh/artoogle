@@ -76,7 +76,6 @@ class RDFQueries:
         return artists
 
     def get_movement(self, artist):
-
         q_str = """
                 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
                 PREFIX dbo: <http://dbpedia.org/ontology/>
@@ -88,3 +87,30 @@ class RDFQueries:
         res = (self.g.query(q))
         for row in res:
             return row.m
+
+
+    def get_birthplace(self, artist):
+        q_str = """
+                       PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                       PREFIX dbo: <http://dbpedia.org/ontology/>
+                       SELECT * WHERE {
+                           <http://dbpedia.org/resource/%s> dbo:birthPlace ?p
+                       }
+                       """
+        q = sparql.prepareQuery(q_str % artist)
+        res = (self.g.query(q))
+        for row in res:
+            return row.p
+
+    def get_birthdate(self, artist):
+        q_str = """
+                       PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                       PREFIX dbo: <http://dbpedia.org/ontology/>
+                       SELECT * WHERE {
+                           <http://dbpedia.org/resource/%s> dbo:birthDate ?d
+                       }
+                       """
+        q = sparql.prepareQuery(q_str % artist)
+        res = (self.g.query(q))
+        for row in res:
+            return row.d

@@ -13,8 +13,7 @@ lookup = {9000: "United_States", 1000: "France", 2000: "Italy", 3000: "Netherlan
           17: "Pre-Raphaelite_Brotherhood", 18: "Arts_and_Crafts_movement", 19: "Aestheticism", 20: "Abstract"}
 inv_lookup = {v: k for k, v in lookup.items()}
 
-dataset = pandas.read_csv("data/InputFile.csv")
-print(dataset)
+dataset = pandas.read_csv("aai/data/InputFile.csv")
 X = dataset.drop('movement', axis=1)
 X = X.drop('Unnamed: 3', axis=1)
 y = dataset['movement']
@@ -40,7 +39,7 @@ def test_and_visualize():
 
 def predict_movement(location, year):
     try:
-        loc = inv_lookup[location]
+        loc: int = inv_lookup[location]
     except KeyError:
         loc = 1111
     mov = classifier.predict([[loc, year]])
