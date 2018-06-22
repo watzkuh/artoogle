@@ -56,7 +56,7 @@
         {% for path, title in images.items %}
             <div class="artwork-item">
                 <p>{{ title }}</p>
-                <a href="{% static path %}">
+                <a href="/detail?arg={{ title }}">
                     <img src="{% static path %}"/>
                 </a>
             </div>

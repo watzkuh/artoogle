@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'artoogle/base.css' %}">
+    <title>Artoogle!</title>
+</head>
+<body>
+<div class="results-wrap">
+    {% if labels %}
+        <p> Artworks containing: </p>
+        <ul>
+            {% for label in labels %}
+                <li>{{ label }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% if images %}
+        {% for path, meta in images.items %}
+            {% for artist, title in meta.items %}
+                <div class="artwork-item">
+                    <p>
+                        <a href="/search?arg={{ artist }}">
+                            {{ artist }}
+                        </a>: {{ title }}
+                    </p>
+                    <a href="{% static path %}">
+                        <img src="{% static path %}"/>
+                    </a>
+                </div>
+            {% endfor %}
+        {% endfor %}
+    {% endif %}
+</div>
+</body>
+</html>

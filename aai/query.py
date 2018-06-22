@@ -37,7 +37,7 @@ class RDFQueries:
         abstract = abstract.replace('\\xa0', ' ').replace('\\\'s', '\'s')
         return abstract
 
-    def get_art(self, artist):
+    def get_art_from_artist(self, artist):
         q_str = """
         PREFIX dbp:	<http://dbpedia.org/property/>
         PREFIX local: <http://localhost/>
@@ -54,6 +54,23 @@ class RDFQueries:
         for row in res:
             images[row[0]] = row[1]
         return images
+
+    def get_artist_from_art(self, artwork):
+        artwork = artwork.replace(' ', '_')
+        q_str = """
+                PREFIX dbp:	<http://dbpedia.org/property/>
+                PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                SELECT ?label WHERE {
+                    <http://dbpedia.org/resource/%s> dbp:artist ?a.
+                    ?a rdfs:label ?label.
+                }
+                """
+        q = sparql.prepareQuery(q_str % artwork)
+        res = (self.g.query(q))
+        artist = ""
+        for row in res:
+            artist = str(row[0])
+        return artist
 
     def get_artists_for_movement(self, movement):
         if not movement:
@@ -87,7 +104,6 @@ class RDFQueries:
         res = (self.g.query(q))
         for row in res:
             return row.m
-
 
     def get_birthplace(self, artist):
         q_str = """

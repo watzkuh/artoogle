@@ -6,5 +6,6 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('search', views.search, name='search'),
     path('autosuggest', views.auto_suggest, name='autosuggest'),
+    path('detail', views.detail, name='detail'),
     path('runindex', views.run_index, name='runindex'),
 ]
