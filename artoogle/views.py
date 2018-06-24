@@ -63,21 +63,9 @@ def detail(request):
     # artwork contatins the artwork's name that was klicked on, i.e. "Starry Night Over the Rhone"
     artwork = str(request.GET.get('arg'))
 
-    # TODO: Fill this dictionary with the paintings and related works, key should be the path to the image, value should be the name,
-    # please also return the labels that 'connect' the artworks as a list
-    # images, labels = getRelatedWork(artwork)
+    images = pool.get_similar_art(artwork, 5)
+    labels = pool.get_artwork_labels(artwork)
 
-    # fill images and labels with dummy data
-    images = {
-        'images/compressed_Rembrandt_-_Rembrandt_and_Saskia_in_the_Scene_of_the_Prodigal_Son_-_Google_Art_Project.jpg': 'The Prodigal Son in the Tavern',
-        'images/compressed_Starry_Night_Over_the_Rhone.jpg': 'Starry Night Over the Rhone',
-        'images/compressed_Caspar_David_Friedrich_The_Tree_of_Crows.jpg': 'The Tree of Crows',
-    }
-    labels = ['blue', 'yada yada', 'swag']
-
-    for k, title in images.items():
-        artist = pool.get_artist_from_art(title)
-        images[k] = {artist: title}
     return render(request, 'artoogle/detail.html', {
         'images': images,
         'labels': labels,

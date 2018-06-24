@@ -1,6 +1,7 @@
 import rdflib
 import rdflib.plugins.sparql as sparql
 from rdflib.namespace import RDF, FOAF
+import random
 
 
 class RDFQueries:
@@ -130,3 +131,51 @@ class RDFQueries:
         res = (self.g.query(q))
         for row in res:
             return row.d
+
+    def get_similar_art(self, artwork, count=10):
+        q = """
+            PREFIX local: <http://localhost/>
+            PREFIX dbp: <http://dbpedia.org/property/>
+            PREFIX yago: <http://dbpedia.org/class/yago/>
+            PREFIX dbpprop: <http://dbpedia.org/property/>
+            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+            SELECT distinct ?artist_name ?artwork_name ?path WHERE {{
+            ?this_artwork rdfs:label "{0}"@en;
+            local:tag ?tag.
+            ?similar_artwork local:tag ?tag;
+            local:compressed_depiction ?path;
+            rdfs:label ?artwork_name;
+            rdf:type ?type;
+            dbpprop:artist ?artist.
+            ?artist rdfs:label ?artist_name.
+            FILTER (?similar_artwork != ?this_artwork).
+            FILTER (?type = yago:Painting103876519 || ?type = yago:Sculpture104157320).
+            }}
+            """
+        q = q.format(artwork)
+        # this may mess up the randomness
+        # q = sparql.prepareQuery(q)
+        res = self.g.query(q)
+        result = []
+        res = random.sample(list(res), count)
+        for row in res:
+            result_row = {"artist": row["artist_name"], "artwork": row["artwork_name"], "path": row["path"]}
+            result.append(result_row)
+        return result
+
+    def get_artwork_labels(self, artwork):
+        q = """
+            PREFIX local: <http://localhost/>
+            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+            SELECT ?tag WHERE {{
+                ?this_artwork rdfs:label "{0}"@en;
+                local:tag ?tag.
+            }}
+            """
+        q = q.format(artwork)
+        q = sparql.prepareQuery(q)
+        res = self.g.query(q)
+        result = []
+        for row in res:
+            result.append(row["tag"])
+        return result

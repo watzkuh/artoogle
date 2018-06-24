@@ -17,19 +17,17 @@
         </ul>
     {% endif %}
     {% if images %}
-        {% for path, meta in images.items %}
-            {% for artist, title in meta.items %}
+        {% for image in images %}
                 <div class="artwork-item">
                     <p>
-                        <a href="/search?arg={{ artist }}">
-                            {{ artist }}
-                        </a>: {{ title }}
+                        <a href="/search?arg={{ image.artist }}">
+                            {{ image.artist }}
+                        </a>: {{ image.artwork }}
                     </p>
-                    <a href="{% static path %}">
-                        <img src="{% static path %}"/>
+                    <a href="/detail?arg={{ image.artwork }}">
+                        <img src="{% static image.path %}"/>
                     </a>
                 </div>
-            {% endfor %}
         {% endfor %}
     {% endif %}
 </div>
