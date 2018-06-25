@@ -16,4 +16,3 @@ urllib3==1.22
 Whoosh==2.7.4
 win-unicode-console==0.5
 deepl==0.3
-tensorflow==1.8.0
