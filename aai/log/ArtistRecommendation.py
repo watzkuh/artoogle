@@ -24,6 +24,8 @@ class ArtistRecommendation:
                 birthDate = self.db.get_birthdate(artist)
                 if birthDate:
                     birthDate = birthDate.split("-")[0]
+                else:
+                    birthDate = 0000
                 birthPlace = self.db.get_birthplace(artist)
                 if not birthPlace:
                     birthPlace = "Buxtehude"
