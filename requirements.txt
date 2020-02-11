@@ -1,7 +1,7 @@
 pandas
 graphviz
 scikit-learn
-Django==2.0.4
+Django==2.2.10
 docutils==0.14
 entrypoints==0.2.3
 html5lib==0.9999999
