@@ -4,7 +4,7 @@ scikit-learn
 Django==2.0.4
 docutils==0.14
 entrypoints==0.2.3
-html5lib==0.9999999
+html5lib==0.99999999
 Jinja2==2.10
 jsonschema==2.6.0
 Markdown==2.6.11
